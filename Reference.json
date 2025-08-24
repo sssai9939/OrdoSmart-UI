@@ -1,0 +1,98 @@
+{
+  "restaurantName": "مطعم أوزي",
+  "metaData": {
+    "theme": {
+      "primaryColor": "#D9534F",
+      "secondaryColor": "#F5F5F5",
+      "accentColor": "#007bff",
+      "fontFamily": "Segoe UI, sans-serif"
+    },
+    "layout": {
+      "sections": [
+        "home",
+        "menu",
+        "cart"
+      ]
+    }
+  },
+  "menu": [
+    {
+      "category": "مشويات",
+      "items": [
+        {
+          "id": "item-101",
+          "name": "كفتة مشوية",
+          "description": "كفتة مشوية على الفحم تقدم مع الأرز وسلطة الطحينة.",
+          "price": 65.00,
+          "image_url": "https://example.com/images/kofta.jpg"
+        },
+        {
+          "id": "item-102",
+          "name": "كباب ضأن",
+          "description": "قطع كباب من لحم الضأن الطازج مشوية على الفحم.",
+          "price": 85.50,
+          "image_url": "https://example.com/images/kebab.jpg"
+        },
+        {
+          "id": "item-103",
+          "name": "طرب",
+          "description": "طرب مصري أصيل ملفوف بالمنديل ومقلي، يقدم ساخناً.",
+          "price": 70.00,
+          "image_url": "https://example.com/images/tarb.jpg"
+        },
+        {
+          "id": "item-104",
+          "name": "فراخ مشوية",
+          "description": "فراخ مشوية بتتبيلة المطعم الخاصة، تقدم مع الخبز البلدي.",
+          "price": 75.00,
+          "image_url": "https://example.com/images/grilled_chicken.jpg"
+        }
+      ]
+    },
+    {
+      "category": "مقبلات",
+      "items": [
+        {
+          "id": "item-201",
+          "name": "سلطة الطحينة",
+          "description": "طحينة بيضاء مع الثوم والليمون.",
+          "price": 15.00,
+          "image_url": "https://example.com/images/tahini.jpg"
+        },
+        {
+          "id": "item-202",
+          "name": "بابا غنوج",
+          "description": "باذنجان مشوي مع الطحينة والخضروات.",
+          "price": 18.00,
+          "image_url": "https://example.com/images/baba_ghanoush.jpg"
+        },
+        {
+          "id": "item-203",
+          "name": "مخلل مشكل",
+          "description": "مجموعة متنوعة من الخضروات المخللة.",
+          "price": 10.00,
+          "image_url": "https://example.com/images/pickles.jpg"
+        }
+      ]
+    },
+    {
+      "category": "حلويات",
+      "items": [
+        {
+          "id": "item-301",
+          "name": "أم علي",
+          "description": "طبق أم علي مصري تقليدي، يقدم ساخناً.",
+          "price": 25.00,
+          "image_url": "https://example.com/images/om_ali.jpg"
+        },
+        {
+          "id": "item-302",
+          "name": "رز بلبن",
+          "description": "أرز باللبن مع القشطة والمكسرات.",
+          "price": 20.00,
+          "image_url": "https://example.com/images/rice_pudding.jpg"
+        }
+      ]
+    }
+  ]
+}
