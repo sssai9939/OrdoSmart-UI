@@ -1,0 +1,263 @@
+/* Mobile First Responsive Design for Oozy Restaurant */
+
+/* Base Mobile Styles (320px - 767px) */
+/* All base mobile styles are already in main.css */
+
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: var(--container-padding-tablet);
+    }
+    
+    .header {
+        height: var(--header-height-desktop);
+    }
+    
+    .header-content {
+        height: var(--header-height-desktop);
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-text {
+        font-size: 1.6rem;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .hero {
+        margin-top: var(--header-height-desktop);
+        min-height: 70vh;
+        background-attachment: fixed;
+    }
+    
+    .hero-content {
+        max-width: 600px;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        gap: 24px;
+    }
+    
+    .about-section,
+    .menu-preview {
+        padding: var(--section-padding-tablet);
+    }
+    
+    .section-header {
+        margin-bottom: 50px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .menu-card-image {
+        height: 200px;
+    }
+}
+
+/* Desktop Styles (1025px and up) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+        padding: var(--container-padding-desktop);
+    }
+    
+    .nav-menu {
+        gap: 40px;
+    }
+    
+    .hero-content {
+        max-width: 800px;
+    }
+    
+    .about-section,
+    .menu-preview {
+        padding: var(--section-padding-desktop);
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+    
+    .feature-card {
+        padding: 40px 30px;
+    }
+    
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 25px;
+    }
+    
+    .feature-icon svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .menu-card-image {
+        height: 220px;
+    }
+}
+
+/* Large Desktop Styles (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height-mobile);
+        left: 0;
+        right: 0;
+        background: var(--overlay-dark);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        z-index: 999;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .mobile-nav-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .mobile-menu-btn.active {
+        color: var(--accent-gold);
+    }
+}
+
+/* Tablet responsive footer */
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+    
+    .footer {
+        padding: var(--section-padding-tablet);
+    }
+}
+
+/* Desktop responsive footer */
+@media (min-width: 1025px) {
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    
+    .footer {
+        padding: var(--section-padding-desktop);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+        padding: 16px 32px;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        padding: 16px;
+    }
+    
+    .mobile-menu-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    .feature-card:hover,
+    .menu-card:hover {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .mobile-menu-btn,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero {
+        background: none !important;
+        color: black !important;
+        margin-top: 0;
+    }
+}

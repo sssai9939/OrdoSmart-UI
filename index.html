@@ -9,9 +9,13 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+    <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg">
 </head>
 <body>
     <!-- Header -->
@@ -20,8 +24,8 @@
             <div class="header-content">
                 <!-- Logo Section -->
                 <div class="logo-section">
-                    <img src="./assets/images/logo.jpg" alt="مطعم أوزي" class="logo">
-                    <a href="index.html" class="logo-text">مطعم أوزي</a>
+                    <img src="./assets/images/logo.jpeg" alt="أوزي" class="logo">
+                    <a href="index.html" class="logo-text">أوزي</a>
                 </div>
                 
                 <!-- Navigation -->
@@ -31,12 +35,15 @@
                         <li><a href="menu.html" class="nav-link">Menu</a></li>
                         <li><a href="about.html" class="nav-link">About</a></li>
                         <li><a href="pages/offers.html" class="nav-link">Offers</a></li>
+                        <li><a href="cart.html" class="nav-link">Cart</a></li>
                     </ul>
                 </nav>
 
                 <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
-                    ☰
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="فتح القائمة">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
                 </button>
             </div>
         </div>
@@ -46,7 +53,7 @@
     <section class="hero">
         <div class="hero-content fade-in-up">
             <h1 class="hero-title">مرحباً بكم في مطعم أوزي</h1>
-            <p class="hero-subtitle">تذوقوا أشهى المشويات المصرية الأصيلة المحضرة على الفحم</p>
+            <p class="hero-subtitle">تذوقوا أشهى المشويات المصريةالأصيلة </p>
             <div class="hero-buttons">
                 <a href="menu.html" class="btn btn-primary">تصفح القائمة</a>
                 <a href="pages/offers.html" class="btn btn-outline">العروض الخاصة</a>
@@ -58,7 +65,7 @@
     <section class="about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">لماذا مطعم أوزي؟</h2>
+                <h2 class="section-title">لماذا أوزي؟</h2>
                 <p class="section-subtitle">
                     نحن نقدم أفضل تجربة طعام مع أجود أنواع اللحوم 
                     مع الحفاظ على الطعم الأصيل والجودة العالية التي تميزنا
@@ -120,88 +127,42 @@
         </div>
     </section>
 
-    <!-- Menu Preview Section -->
-    <section class="menu-preview">
+    <!-- Main Dishes Section -->
+    <section class="main-dishes-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">أشهر أطباقنا</h2>
+                <h2 class="section-title">الأطباق الرئيسية</h2>
                 <p class="section-subtitle">
-                    تذوقوا مجموعة مختارة من أشهى المشويات المصرية الأصيلة المحضرة بعناية فائقة
+                    تشكيلة متنوعة من أشهى المشويات المصرية الأصيلة المحضرة بعناية فائقة
                 </p>
             </div>
             
-            <div class="menu-grid">
-                <!-- Dish 1 -->
-                <div class="menu-card fade-in-up">
-                    <div class="menu-card-image">
-                        <span>كفتة مشوية</span>
-                    </div>
-                    <div class="menu-card-content">
-                        <h3 class="menu-card-title">كفتة مشوية</h3>
-                        <p class="menu-card-description">
-                            كفتة مشوية على الفحم الطبيعي تقدم مع الأرز الأبيض وسلطة الطحينة الطازجة
-                        </p>
-                        <div class="menu-card-footer">
-                            <span class="menu-card-price">165.00 جنيه</span>
-                            <button class="btn btn-primary btn-small">اطلب الآن</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dish 2 -->
-                <div class="menu-card fade-in-up">
-                    <div class="menu-card-image">
-                        <span>كباب ضأن</span>
-                    </div>
-                    <div class="menu-card-content">
-                        <h3 class="menu-card-title">كباب ضأن</h3>
-                        <p class="menu-card-description">
-                            قطع كباب من لحم الضأن الطازج مشوية على الفحم مع التوابل المصرية الأصيلة
-                        </p>
-                        <div class="menu-card-footer">
-                            <span class="menu-card-price">280.00 جنيه</span>
-                            <button class="btn btn-primary btn-small">اطلب الآن</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dish 3 -->
-                <div class="menu-card fade-in-up">
-                    <div class="menu-card-image">
-                        <span>فراخ مشوية</span>
-                    </div>
-                    <div class="menu-card-content">
-                        <h3 class="menu-card-title">فراخ مشوية</h3>
-                        <p class="menu-card-description">
-                            فراخ مشوية بتتبيلة المطعم الخاصة تقدم مع الخبز البلدي والسلطة الخضراء
-                        </p>
-                        <div class="menu-card-footer">
-                            <span class="menu-card-price">135.00 جنيه</span>
-                            <button class="btn btn-primary btn-small">اطلب الآن</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dish 4 -->
-                <div class="menu-card fade-in-up">
-                    <div class="menu-card-image">
-                        <span>طرب مصري</span>
-                    </div>
-                    <div class="menu-card-content">
-                        <h3 class="menu-card-title">طرب مصري</h3>
-                        <p class="menu-card-description">
-                            طرب مصري أصيل مقلي بعناية، يقدم ساخناً مع الخبز والسلطة
-                        </p>
-                        <div class="menu-card-footer">
-                            <span class="menu-card-price">270.00 جنيه</span>
-                            <button class="btn btn-primary btn-small">اطلب الآن</button>
-                        </div>
-                    </div>
-                </div>
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="مكس جريل">
+                    <i class="fas fa-fire"></i>
+                    <span>مكس جريل</span>
+                </button>
+                <button class="category-tab" data-category="مكس سوبر">
+                    <i class="fas fa-star"></i>
+                    <span>مكس سوبر</span>
+                </button>
+                <button class="category-tab" data-category="مكس اسبيشيال">
+                    <i class="fas fa-crown"></i>
+                    <span>مكس اسبيشيال</span>
+                </button>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="menu.html" class="btn btn-primary">عرض القائمة كاملة</a>
+            <!-- Dishes Container -->
+            <div class="dishes-container" id="dishes-container">
+                <!-- Dishes will be loaded here dynamically -->
+            </div>
+
+            <div class="view-full-menu">
+                <a href="menu.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-utensils"></i>
+                    عرض القائمة كاملة
+                </a>
             </div>
         </div>
     </section>
@@ -213,54 +174,86 @@
                 <!-- Restaurant Info -->
                 <div class="footer-section">
                     <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <img src="./assets/images/logo.jpg" alt="مطعم أوزي" style="width: 40px; height: 40px; border-radius: 50%; margin-left: 15px;">
-                        <h3>مطعم أوزي</h3>
+                        <img src="./assets/images/logo.jpeg" alt="أوزي" style="width: 40px; height: 40px; border-radius: 50%; margin-left: 15px;">
+                        <h3>أوزي</h3>
                     </div>
                     <p>
-                        أفضل مطعم مشويات مصرية أصيلة في القاهرة. نقدم لكم أشهى المأكولات المشوية على الفحم 
-                        الطبيعي بأعلى جودة وأفضل الأسعار مع الحفاظ على الطعم الأصيل.
+                        أفضل مطعم مشويات مصرية أصيلة. نقدم لكم أشهى المأكولات المشوية على الفحم 
+                        الطبيعي بأعلى جودة.
                     </p>
                 </div>
 
                 <!-- Contact Info -->
                 <div class="footer-section">
                     <h3>معلومات التواصل</h3>
-                    <ul>
-                        <li>📧 info@oozy-restaurant.com</li>
-                        <li>📞 +20 123 456 7890</li>
-                        <li>📱 +20 100 123 4567</li>
-                        <li>📍 شارع التحرير، وسط البلد، القاهرة</li>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-phone"></i>201003309100</li>
+                        <li><i class="fas fa-mobile-alt"></i>201013500050</li>
+                        <li><i class="fas fa-map-marker-alt"></i> ميدان المسلة - مدينة الفيوم</li>
                     </ul>
                 </div>
 
                 <!-- Working Hours -->
                 <div class="footer-section">
                     <h3>ساعات العمل</h3>
-                    <ul>
-                        <li>السبت - الخميس: 12:00 ظهراً - 12:00 منتصف الليل</li>
-                        <li>الجمعة: 2:00 ظهراً - 1:00 صباحاً</li>
-                        <li>متاح للتوصيل طوال ساعات العمل</li>
+                    <ul class="footer-hours-list">
+                        <li><i class="fas fa-clock"></i> طوال أيام الأسبوع: 10 صباحاً - 4 فجراً</li>
+                        <li><i class="fas fa-truck"></i> متاح للتوصيل طوال ساعات العمل</li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 مطعم أوزي للمشويات المصرية. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2025 أوزي. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    // Mobile menu functionality will be added later
-                    alert('قائمة الهاتف المحمول - سيتم تطويرها قريباً');
-                });
+            const navMenu = document.querySelector('.nav-menu');
+            const body = document.body;
+            
+            function toggleMobileMenu() {
+                mobileMenuBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                body.classList.toggle('mobile-menu-open');
             }
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+            
+            // Close mobile menu when clicking on nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth < 768) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth < 768 && 
+                    !mobileMenuBtn.contains(event.target) && 
+                    !navMenu.contains(event.target) && 
+                    navMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && navMenu.classList.contains('active')) {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('mobile-menu-open');
+                }
+            });
 
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -276,7 +269,278 @@
                 });
             });
 
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0ms';
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.feature-card, .menu-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Performance optimization: Lazy load images
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+
+            // Add loading states to buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (this.textContent.includes('اطلب الآن') || this.textContent.includes('تصفح القائمة')) {
+                        this.classList.add('loading');
+                        setTimeout(() => {
+                            this.classList.remove('loading');
+                        }, 1000);
+                    }
+                });
+            });
+
+            // Load Main Dishes Data
+            loadMainDishes();
         });
+
+        // Function to load main dishes from JSON
+        async function loadMainDishes() {
+            try {
+                const response = await fetch('./data/main_dishes.json');
+                const data = await response.json();
+                const mainDishes = data.main_dishes;
+                
+                // Store data globally
+                window.mainDishesData = mainDishes;
+                
+                // Display first category by default
+                displayDishes('مكس جريل');
+                
+                // Setup category tabs
+                setupCategoryTabs();
+            } catch (error) {
+                console.error('Error loading dishes:', error);
+                document.getElementById('dishes-container').innerHTML = 
+                    '<p class="error-message">عذراً، حدث خطأ في تحميل الأطباق</p>';
+            }
+        }
+
+        // Function to display dishes by category
+        function displayDishes(category) {
+            const container = document.getElementById('dishes-container');
+            const dishes = window.mainDishesData[category];
+            
+            if (!dishes) {
+                container.innerHTML = '<p class="no-dishes">لا توجد أطباق في هذا القسم</p>';
+                return;
+            }
+            
+            // Filter out the note object
+            const actualDishes = dishes.filter(dish => dish.id);
+            const note = dishes.find(dish => dish['..']);
+            
+            let html = '<div class="dishes-grid">';
+            
+            actualDishes.forEach((dish, index) => {
+                html += `
+                    <div class="dish-card fade-in-up" style="animation-delay: ${index * 100}ms">
+                        <div class="dish-badge">${category}</div>
+                        <div class="dish-image">
+                            <img src="${dish.image}" alt="${dish.title}" loading="lazy" 
+                                 onerror="this.src='assets/images/placeholder.jpg'">
+                            <div class="dish-overlay">
+                                <button class="quick-view-btn" onclick="quickView('${dish.id}')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dish-content">
+                            <h3 class="dish-title">${dish.title}</h3>
+                            <p class="dish-description">${dish.description}</p>
+                            <div class="dish-footer">
+                                <div class="dish-price">
+                                    <span class="price-amount">${dish.price}</span>
+                                    <span class="price-currency">جنيه</span>
+                                </div>
+                                <button class="add-to-cart-btn" onclick="addToCart('${dish.id}')">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>أضف للسلة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            
+            // Add note if exists
+            if (note) {
+                html += `
+                    <div class="category-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>${note['..']}</span>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+            
+            // Re-observe new elements for animation
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.dish-card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Setup category tabs functionality
+        function setupCategoryTabs() {
+            const tabs = document.querySelectorAll('.category-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Display dishes for selected category
+                    const category = this.dataset.category;
+                    displayDishes(category);
+                });
+            });
+        }
+
+        // Add to cart function
+        function addToCart(dishId) {
+            // Find the dish
+            let dish = null;
+            for (const category in window.mainDishesData) {
+                const found = window.mainDishesData[category].find(d => d.id === dishId);
+                if (found) {
+                    dish = found;
+                    break;
+                }
+            }
+            
+            if (dish) {
+                // Get existing cart or create new one
+                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                
+                // Check if item already exists
+                const existingItem = cart.find(item => item.id === dishId);
+                
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        ...dish,
+                        quantity: 1
+                    });
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Show success message
+                showNotification('تمت الإضافة للسلة بنجاح', 'success');
+                
+                // Update cart counter if exists
+                updateCartCounter();
+            }
+        }
+
+        // Quick view function
+        function quickView(dishId) {
+            // Find the dish
+            let dish = null;
+            for (const category in window.mainDishesData) {
+                const found = window.mainDishesData[category].find(d => d.id === dishId);
+                if (found) {
+                    dish = found;
+                    break;
+                }
+            }
+            
+            if (dish) {
+                // Create modal or redirect to detail page
+                console.log('Quick view for:', dish);
+                // You can implement a modal here
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Update cart counter
+        function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Update cart link if exists
+            const cartLink = document.querySelector('.nav-link[href="cart.html"]');
+            if (cartLink && totalItems > 0) {
+                const existingBadge = cartLink.querySelector('.cart-badge');
+                if (existingBadge) {
+                    existingBadge.textContent = totalItems;
+                } else {
+                    const badge = document.createElement('span');
+                    badge.className = 'cart-badge';
+                    badge.textContent = totalItems;
+                    cartLink.appendChild(badge);
+                }
+            }
+        }
     </script>
 </body>
 </html>
