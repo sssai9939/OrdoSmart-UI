@@ -1,0 +1,114 @@
+{
+    "grilled_items": [
+      {
+        "id": "grill1",
+        "image": "assets/images/grilled/ريش ضاني.png",
+        "title": "ريش ضاني",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 207},
+          {"name": "نصف", "price": 276},
+          {"name": "كيلو", "price": 800}
+        ]
+      },
+      {
+        "id": "grill2", 
+        "image": "assets/images/grilled/كباب صافي.jpg",
+        "title": "كباب صافي",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 285},
+          {"name": "نصف", "price": 397},
+          {"name": "كيلو", "price": 1180}
+        ]
+      },
+      {
+        "id": "grill3",
+        "image": "assets/images/grilled/كباب مشكل.jpg", 
+        "title": "كباب مشكل",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 250},
+          {"name": "نصف", "price": 333},
+          {"name": "كيلو", "price": 990}
+        ]
+      },
+      {
+        "id": "grill4",
+        "image": "assets/images/grilled/طرب.png",
+        "title": "طرب", 
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 220},
+          {"name": "نصف", "price": 293},
+          {"name": "كيلو", "price": 850}
+        ]
+      },
+      {
+        "id": "grill5",
+        "image": "assets/images/grilled/كفتة ضاني.png",
+        "title": "كفتة ضاني",
+        "description": null, 
+        "sizes": [
+          {"name": "ربع", "price": 207},
+          {"name": "نصف", "price": 276},
+          {"name": "كيلو", "price": 800}
+        ]
+      },
+      {
+        "id": "grill6",
+        "image": "assets/images/grilled/نيفا.png",
+        "title": "نيفا",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 245},
+          {"name": "نصف", "price": 327},
+          {"name": "كيلو", "price": 950}
+        ]
+      },
+      {
+        "id": "grill7",
+        "image": "assets/images/grilled/كبدة ضاني مشوي.png", 
+        "title": "كبدة ضاني مشوي",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 232},
+          {"name": "نصف", "price": 310},
+          {"name": "كيلو", "price": 900}
+        ]
+      },
+      {
+        "id": "grill8",
+        "image": "assets/images/grilled/لحم نعام.jpg",
+        "title": "لحم نعام",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 197},
+          {"name": "نصف", "price": 263},
+          {"name": "كيلو", "price": 760}
+        ]
+      },
+      {
+        "id": "grill9",
+        "image": "assets/images/grilled/سجق شرقي.png",
+        "title": "سجق شرقي", 
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 220},
+          {"name": "نصف", "price": 276},
+          {"name": "كيلو", "price": 800}
+        ]
+      },
+      {
+        "id": "grill10",
+        "image": "assets/images/grilled/ﻛﻔﺘﺔ ﻓﺮاخ.png",
+        "title": "كفتة فراخ",
+        "description": null,
+        "sizes": [
+          {"name": "ربع", "price": 87},
+          {"name": "نصف", "price": 116},
+          {"name": "كيلو", "price": 320}
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "duck1",
+    "image": "assets/images/duck/وجبه رومي مع ارز ابيض بالشعريه.png",
+    "title": "وجبة رومي مع ارز ابيض بالشعرية",
+    "price": "200"
+  },
+  {
+    "id": "duck2",
+    "image": "assets/images/duck/ربع لحم نعام مع رز ابيض بالشعريه.jpeg",
+    "title": "¼ لحم نعام مع ارز ابيض بالشعرية",
+    "price": "210"
+  },
+  {
+    "id": "duck3",
+    "image": "assets/images/duck/فرد حمام محشي.png",
+    "title": "فرد حمام محشى",
+    "price": "175"
+  },
+  {
+    "id": "duck4",
+    "image": "assets/images/duck/ربع بطه ورك مع رز ابيض بالشعريه .png",
+    "title": "¼ بطة ورك مع ارز ابيض بالشعرية",
+    "price": "180"
+  },
+  {
+    "id": "duck5",
+    "image": "assets/images/duck/ربع بطه صدر مع رز ابيض بالشعريه .png",
+    "title": "¼ بطة صدر مع ارز ابيض بالشعرية",
+    "price": "215"
+  },
+  {
+    "id": "duck6",
+    "image": "assets/images/duck/نص بطه مع ارز ابيض بالشعريه.png",
+    "title": "½ بطة مع ارز ابيض بالشعرية",
+    "price": "375"
+  }
+]

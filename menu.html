@@ -37,17 +37,40 @@
           <i class="fas fa-fire"></i>
           <span>الأطباق الرئيسية</span>
         </button>
+
         <button class="category-tab" data-category="المقبلات">
           <i class="fas fa-utensils"></i>
           <span>المقبلات</span>
         </button>
+
         <button class="category-tab" data-category="الشوربة">
           <i class="fas fa-mug-hot"></i>
           <span>الشوربة</span>
         </button>
+
         <button class="category-tab" data-category="السلطات">
           <i class="fas fa-leaf"></i>
           <span>السلطات</span>
+        </button>
+
+        <button class="category-tab" data-category="الأرز">
+          <i class="fas fa-bowl-rice"></i>
+          <span>الأرز</span>
+        </button>
+
+        <button class="category-tab" data-category="البط و الرومي">
+          <i class="fas fa-drumstick-bite"></i>
+          <span>البط و الرومي</span>
+        </button>
+
+        <button class="category-tab" data-category="مشاوي يالكيلو">
+          <i class="fas fa-fire-burner"></i>
+          <span>مشاوي يالكيلو</span>
+        </button>
+
+        <button class="category-tab" data-category="الطواجن">
+          <i class="fas fa-bowl-food"></i>
+          <span>الطواجن</span>
         </button>
       </div>
 
@@ -97,10 +120,14 @@
 
     async function loadMenu() {
       const sources = [
-        { url: './data/main_dishes.json', category: 'main_dishes' },
-        { url: './data/appetizers.json', category: 'المقبلات' },
-        { url: './data/soup.json',        category: 'الشوربة' },
-        { url: './data/salads.json',      category: 'السلطات' }
+        { url: './data/main_dishes.json', category: 'main_dishes'},
+        { url: './data/appetizers.json', category: 'المقبلات'},
+        { url: './data/soup.json', category: 'الشوربة'},
+        { url: './data/salads.json', category: 'السلطات'},
+        { url: './data/rice.json', category: 'الأرز'},
+        { url: './data/duck.json', category: 'البط و الرومي'},
+        { url: './data/grilled.json', category: 'مشاوي يالكيلو'},
+        { url: './data/casseroles.json', category: 'الطواجن'},
       ];
 
       try {
@@ -123,8 +150,13 @@
             });
           } else {
             // Handle other categories
-            menuData[src.category] = data;
-            data.forEach((it) => {
+            // Some files are arrays, others are objects with a named array (e.g., grilled_items)
+            const itemsArray = Array.isArray(data)
+              ? data
+              : (data.grilled_items || data.items || []);
+
+            menuData[src.category] = itemsArray;
+            itemsArray.forEach((it) => {
               if (it && it.id) menuItemsIndex[it.id] = it;
             });
           }
@@ -200,6 +232,10 @@
 
       let html = '<div class="dishes-grid">';
       actualDishes.forEach((dish, idx) => {
+        const sizesArr = Array.isArray(dish.sizes) ? dish.sizes : (Array.isArray(dish.size) ? dish.size : null);
+        const hasSizes = Array.isArray(sizesArr) && sizesArr.length > 0;
+        const initialPrice = hasSizes ? sizesArr[0].price : dish.price;
+        const sizeLabelText = (category === 'الطواجن') ? 'النوع' : 'الحجم';
         html += `
           <div class="dish-card fade-in-up" style="animation-delay: ${idx * 100}ms">
             <div class="dish-badge">${category}</div>
@@ -209,9 +245,17 @@
             <div class="dish-content">
               <h3 class="dish-title">${dish.title}</h3>
               ${dish.description ? `<p class="dish-description">${dish.description}</p>` : ''}
+              ${hasSizes ? `
+                <div class="size-select-wrap">
+                  <label for="size-${dish.id}" class="size-label">${sizeLabelText}</label>
+                  <select class="size-select" id="size-${dish.id}" onchange="onSizeChange('${dish.id}')">
+                    ${sizesArr.map((s, i) => `<option value="${s.price}" data-name="${s.name}" ${i===0?'selected':''}>${s.name} - ${s.price} جنيه</option>`).join('')}
+                  </select>
+                </div>
+              ` : ''}
               <div class="dish-footer">
                 <div class="dish-price">
-                  <span class="price-amount">${dish.price}</span>
+                  <span class="price-amount" id="price-${dish.id}">${initialPrice}</span>
                   <span class="price-currency">جنيه</span>
                 </div>
                 <div class="dish-actions">
@@ -289,17 +333,30 @@
       if (!dish) return;
       
       const quantity = dishQuantities[dishId] || 1;
+      // Determine price and size (if any)
+      let unitPrice = dish.price;
+      let sizeName = null;
+      const sizeEl = document.getElementById(`size-${dishId}`);
+      if (sizeEl) {
+        const opt = sizeEl.options[sizeEl.selectedIndex];
+        unitPrice = Number(opt.value);
+        sizeName = opt.getAttribute('data-name');
+      }
+
       let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const existing = cart.find((i) => i.id === dishId);
+      // Distinguish items of same dish but different sizes by id+size
+      const key = sizeName ? `${dishId}:${sizeName}` : dishId;
+      const existing = cart.find((i) => (i.key || i.id) === key);
       
       if (existing) {
         existing.quantity += quantity;
       } else {
         cart.push({ 
+          key: key,
           id: dish.id, 
-          title: dish.title, 
+          title: sizeName ? `${dish.title} - ${sizeName}` : dish.title, 
           image: dish.image, 
-          price: dish.price, 
+          price: unitPrice, 
           quantity: quantity 
         });
       }
@@ -320,6 +377,16 @@
       const plusBtn = document.querySelector(`[onclick="updateQuantity('${dishId}', 1)"]`);
       if (minusBtn) minusBtn.disabled = true;
       if (plusBtn) plusBtn.disabled = false;
+    }
+
+    // Update price display when size changes
+    function onSizeChange(dishId) {
+      const priceEl = document.getElementById(`price-${dishId}`);
+      const sizeEl = document.getElementById(`size-${dishId}`);
+      if (priceEl && sizeEl) {
+        const opt = sizeEl.options[sizeEl.selectedIndex];
+        priceEl.textContent = Number(opt.value);
+      }
     }
 
     function showNotification(message, type = 'success') {

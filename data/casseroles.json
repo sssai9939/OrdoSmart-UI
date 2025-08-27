@@ -1,0 +1,61 @@
+[
+    {
+      "id": "casserole1",
+      "image": "assets/images/casseroles/طاجن بامية بالحمة.jpg",
+      "title": "طاجن بامية",
+      "description": null,
+      "size": [
+        { "name": "ساده", "price": 45 },
+        { "name": "باللحمه", "price": 220 }
+      ]
+    },
+    {
+      "id": "casserole2",
+      "image": "assets/images/casseroles/طاجن تورلي.jpg",
+      "title": "طاجن تورلي",
+      "description": null,
+      "size": [
+        { "name": "ساده", "price": 35 },
+        { "name": "باللحمه", "price": 310 }
+      ]
+    },
+    {
+      "id": "casserole3",
+      "image": "assets/images/casseroles/طاجن بطاطس باللحمة.jpg",
+      "title": "طاجن بطاطس",
+      "description": null,
+      "size": [
+        { "name": "ساده", "price": 35 },
+        { "name": "باللحمه", "price": 210 }
+      ]
+    },
+    {
+      "id": "casserole4",
+      "image": "assets/images/casseroles/طاجن كوارع بالفته.jpg",
+      "title": "طاجن كوارع بالفتة",
+      "description": null,
+      "price": 200
+    },
+    {
+      "id": "casserole5",
+      "image": "assets/images/casseroles/طاجن ورق عنب بالكوارع.jpg",
+      "title": "طاجن ورق عنب بالكوارع",
+      "description": null,
+      "price": 210
+    },
+    {
+      "id": "casserole6",
+      "image": "assets/images/casseroles/طاجن عكاوي بالبصل.jpeg",
+      "title": "طاجن عكاوي البصل",
+      "description": null,
+      "price": 275
+    },
+    {
+      "id": "casserole7",
+      "image": "assets/images/casseroles/طاجن ملوخيه.jpg",
+      "title": "طاجن ملوخية",
+      "description": null,
+      "price": 35
+    }
+]
+

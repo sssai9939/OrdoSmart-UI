@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rice1",
+    "image": "assets/images/rice/ارز ابيض بالشعريه.png",
+    "title": "أرز أبيض بالشعرية",
+    "price": "30"
+  },
+  {
+    "id": "rice2",
+    "image": "assets/images/rice/ارز بسمتي.png",
+    "title": "أرز بسمتي",
+    "price": "45"
+  },
+  {
+    "id": "rice3",
+    "image": "assets/images/rice/ارز بسمتي بالمكسرات.png",
+    "title": "أرز بسمتي بالمكسرات",
+    "price": "50"
+  },
+  {
+    "id": "rice4",
+    "image": "assets/images/rice/كيلو ارز ابيض بالشعريه.jpg",
+    "title": "كيلو أرز أبيض بالشعرية",
+    "price": "100"
+  },
+  {
+    "id": "rice5",
+    "image": "assets/images/rice/كيلو ارز بسمتي بالمكسرات.jpg",
+    "title": "كيلو أرز بسمتي بالمكسرات",
+    "price": "135"
+  },
+  {
+    "id": "rice6",
+    "image": "assets/images/rice/فته.jpg",
+    "title": "فتة",
+    "price": "40"
+  }
+]

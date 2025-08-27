@@ -174,184 +174,7 @@
                     }
                 });
             });
-
-            // Load Main Dishes Data
-            loadMainDishes();
         });
-
-        // Function to load main dishes from JSON
-        async function loadMainDishes() {
-            try {
-                const response = await fetch('./data/main_dishes.json');
-                const data = await response.json();
-                const mainDishes = data.main_dishes;
-                
-                // Store data globally
-                window.mainDishesData = mainDishes;
-                
-                // Display first category by default
-                displayDishes('مكس جريل');
-                
-                // Setup category tabs
-                setupCategoryTabs();
-            } catch (error) {
-                console.error('Error loading dishes:', error);
-                document.getElementById('dishes-container').innerHTML = 
-                    '<p class="error-message">عذراً، حدث خطأ في تحميل الأطباق</p>';
-            }
-        }
-
-        // Function to display dishes by category
-        function displayDishes(category) {
-            const container = document.getElementById('dishes-container');
-            const dishes = window.mainDishesData[category];
-            
-            if (!dishes) {
-                container.innerHTML = '<p class="no-dishes">لا توجد أطباق في هذا القسم</p>';
-                return;
-            }
-            
-            // Filter out the note object
-            const actualDishes = dishes.filter(dish => dish.id);
-            const note = dishes.find(dish => dish['..']);
-            
-            let html = '<div class="dishes-grid">';
-            
-            actualDishes.forEach((dish, index) => {
-                html += `
-                    <div class="dish-card fade-in-up" style="animation-delay: ${index * 100}ms">
-                        <div class="dish-badge">${category}</div>
-                        <div class="dish-image">
-                            <img src="${dish.image}" alt="${dish.title}" loading="lazy" 
-                                 onerror="this.src='assets/images/placeholder.jpg'">
-                            <div class="dish-overlay">
-                                <button class="quick-view-btn" onclick="quickView('${dish.id}')">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="dish-content">
-                            <h3 class="dish-title">${dish.title}</h3>
-                            <p class="dish-description">${dish.description}</p>
-                            <div class="dish-footer">
-                                <div class="dish-price">
-                                    <span class="price-amount">${dish.price}</span>
-                                    <span class="price-currency">جنيه</span>
-                                </div>
-                                <button class="add-to-cart-btn" onclick="addToCart('${dish.id}')">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <span>أضف للسلة</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += '</div>';
-            
-            // Add note if exists
-            if (note) {
-                html += `
-                    <div class="category-note">
-                        <i class="fas fa-info-circle"></i>
-                        <span>${note['..']}</span>
-                    </div>
-                `;
-            }
-            
-            container.innerHTML = html;
-            
-            // Re-observe new elements for animation
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.dish-card').forEach(card => {
-                observer.observe(card);
-            });
-        }
-
-        // Setup category tabs functionality
-        function setupCategoryTabs() {
-            const tabs = document.querySelectorAll('.category-tab');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    tabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Display dishes for selected category
-                    const category = this.dataset.category;
-                    displayDishes(category);
-                });
-            });
-        }
-
-        // Add to cart function
-        function addToCart(dishId) {
-            // Find the dish
-            let dish = null;
-            for (const category in window.mainDishesData) {
-                const found = window.mainDishesData[category].find(d => d.id === dishId);
-                if (found) {
-                    dish = found;
-                    break;
-                }
-            }
-            
-            if (dish) {
-                // Get existing cart or create new one
-                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-                
-                // Check if item already exists
-                const existingItem = cart.find(item => item.id === dishId);
-                
-                if (existingItem) {
-                    existingItem.quantity++;
-                } else {
-                    cart.push({
-                        ...dish,
-                        quantity: 1
-                    });
-                }
-                
-                // Save to localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-                
-                // Show success message
-                showNotification('تمت الإضافة للسلة بنجاح', 'success');
-                
-                // Update cart counter if exists
-                updateCartCounter();
-            }
-        }
-
-        // Quick view function
-        function quickView(dishId) {
-            // Find the dish
-            let dish = null;
-            for (const category in window.mainDishesData) {
-                const found = window.mainDishesData[category].find(d => d.id === dishId);
-                if (found) {
-                    dish = found;
-                    break;
-                }
-            }
-            
-            if (dish) {
-                // Create modal or redirect to detail page
-                console.log('Quick view for:', dish);
-                // You can implement a modal here
-            }
-        }
 
         // Show notification
         function showNotification(message, type = 'info') {
@@ -376,70 +199,31 @@
             }, 3000);
         }
 
-// Quick view function
-function quickView(dishId) {
-    // Find the dish
-    let dish = null;
-    for (const category in window.mainDishesData) {
-        const found = window.mainDishesData[category].find(d => d.id === dishId);
-        if (found) {
-            dish = found;
-            break;
+        // Update cart counter
+        function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+            
+            const cartLink = document.querySelector('.cart-nav-link');
+            if (!cartLink) return;
+            
+            // Remove existing badge
+            let badge = cartLink.querySelector('.cart-badge');
+            if (badge) {
+                badge.remove();
+            }
+            
+            // Only show badge on cart page
+            const isCartPage = document.querySelector('main.cart-page') !== null;
+            
+            // Add badge if there are items AND we're on the cart page
+            if (totalItems > 0 && isCartPage) {
+                badge = document.createElement('span');
+                badge.className = 'cart-badge';
+                badge.textContent = totalItems;
+                cartLink.appendChild(badge);
+            }
         }
-    }
-    
-    if (dish) {
-        // Create modal or redirect to detail page
-        console.log('Quick view for:', dish);
-        // You can implement a modal here
-    }
-}
-
-// Show notification
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Update cart counter
-function updateCartCounter() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-    
-    const cartLink = document.querySelector('.cart-nav-link');
-    if (!cartLink) return;
-    
-    // Remove existing badge
-    let badge = cartLink.querySelector('.cart-badge');
-    if (badge) {
-        badge.remove();
-    }
-    
-    // Only show badge on cart page
-    const isCartPage = document.querySelector('main.cart-page') !== null;
-    
-    // Add badge if there are items AND we're on the cart page
-    if (totalItems > 0 && isCartPage) {
-        badge = document.createElement('span');
-        badge.className = 'cart-badge';
-        badge.textContent = totalItems;
-        cartLink.appendChild(badge);
-    }
-}
+    </script>
+</body>
+</html>
