@@ -164,8 +164,8 @@ body {
 .hero {
     min-height: 100vh;
     background: linear-gradient(
-        rgba(47, 95, 63, 0.2),
-        rgba(15, 42, 26, 0.3)
+        rgba(47, 95, 63, 0.1),
+        rgba(15, 42, 26, 0.5)
     ), url('../images/banner5.jpg');
     background-size: cover;
     background-position: center;

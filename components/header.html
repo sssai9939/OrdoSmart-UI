@@ -4,23 +4,45 @@
         <div class="header-content">
             <!-- Logo Section -->
             <div class="logo-section">
-                <img src="../assets/images/logo.jpg" alt="مطعم أوزي" class="logo">
-                <a href="../index.html" class="logo-text">مطعم أوزي</a>
+                <img src="./assets/images/logo.jpeg" alt="أوزي" class="logo">
+                <a href="index.html" class="logo-text">أوزي</a>
             </div>
             
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="../index.html" class="nav-link">Home</a></li>
-                    <li><a href="../menu.html" class="nav-link">Menu</a></li>
-                    <li><a href="../about.html" class="nav-link">About</a></li>
-                    <li><a href="offers.html" class="nav-link">Offers</a></li>
+                    <li>
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home nav-icon"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="menu.html" class="nav-link">
+                            <i class="fas fa-utensils nav-icon"></i>
+                            <span>القائمة</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/offers.html" class="nav-link">
+                            <i class="fas fa-tags nav-icon"></i>
+                            <span>العروض</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cart.html" class="nav-link cart-nav-link">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            <span>السلة</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
-                ☰
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="فتح القائمة">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </div>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "salad1",
+    "image": "assets/images/salads/سلطة خضراء.png",
+    "title": "سلطة خضراء",
+    "price": "15"
+  },
+  {
+    "id": "salad2",
+    "image": "assets/images/salads/طحينة.png",
+    "title": "طحينة",
+    "price": "15"
+  },
+  {
+    "id": "salad3",
+    "image": "assets/images/salads/تركيه.jpg",
+    "title": "تركية",
+    "price": "20"
+  },
+  {
+    "id": "salad4",
+    "image": "assets/images/salads/ثوميه.png",
+    "title": "ثومية",
+    "price": "20"
+  },
+  {
+    "id": "salad5",
+    "image": "assets/images/salads/بابا غنوج.png",
+    "title": "بابا غنوج",
+    "price": "20"
+  },
+  {
+    "id": "salad6",
+    "image": "assets/images/salads/كلوسلو.png",
+    "title": "كولسلو",
+    "price": "20"
+  }
+]

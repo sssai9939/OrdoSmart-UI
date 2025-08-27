@@ -1,0 +1,37 @@
+[
+    {
+      "id": "crepe1",
+      "image": "images/crepes/كريب بانية فريش.webp",
+      "title": "كريب بانيه فريش",
+      "description": null,
+      "price": 75
+    },
+    {
+      "id": "crepe2",
+      "image": "images/crepes/كريب زنجر.jpg",
+      "title": "كريب زنجر",
+      "description": null,
+      "price": 75
+    },
+    {
+      "id": "crepe3",
+      "image": "images/crepes/كريب برجر.jpg",
+      "title": "كريب برجر",
+      "description": null,
+      "price": 55
+    },
+    {
+      "id": "crepe4",
+      "image": "images/crepes/كريب بطاطس.jpg",
+      "title": "كريب بطاطس",
+      "description": null,
+      "price": 35
+    },
+    
+    {
+      "extra": [
+        {"extra1": "اضافه قطعة بانية", "price": 20},
+        {"extra2": "اضافه جبنه موزريلا", "price": 20}
+      ]
+    }
+]

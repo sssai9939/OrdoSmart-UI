@@ -1,0 +1,27 @@
+[
+  {
+    "id": "soup1",
+    "image": "assets/images/soup/شوربة خضار ساده.jpg",
+    "title": "شوربة خضار سادة",
+    "price": "25"
+  },
+  {
+    "id": "soup2",
+    "image": "assets/images/soup/شوربة حمام.png",
+    "title": "شوربة حمام",
+    "price": "15"
+  },
+  {
+    "id": "soup3",
+    "image": "assets/images/soup/شوربة لسان عصفور.png",
+    "title": "شوربة لسان عصفور",
+    "price": "20"
+  },
+  {
+    "id": "soup4",
+    "image": "assets/images/soup/شوربة كوارع.png",
+    "title": "شوربة كوارع",
+    "price": "120"
+  }
+]
+

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>القائمة - مطعم أوزي</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+
+</head>
+<body>
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <main class="menu-page">
+    <div class="container">
+      <!-- Menu Images Sidebar -->
+      <div class="menu-header-section">
+        <div class="menu-images-sidebar">
+          <img src="./assets/images/menu_page1.png" alt="صفحة المنيو الأولى" class="menu-page-image" onclick="openImageModal(this)">
+          <img src="./assets/images/menu_page2.png" alt="صفحة المنيو الثانية" class="menu-page-image" onclick="openImageModal(this)">
+        </div>
+        <div class="section-header">
+          <h1 class="section-title">المنيو</h1>
+          <p class="section-subtitle">تصفح الأقسام المتنوعة</p>
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="الأطباق الرئيسية">
+          <i class="fas fa-fire"></i>
+          <span>الأطباق الرئيسية</span>
+        </button>
+        <button class="category-tab" data-category="المقبلات">
+          <i class="fas fa-utensils"></i>
+          <span>المقبلات</span>
+        </button>
+        <button class="category-tab" data-category="الشوربة">
+          <i class="fas fa-mug-hot"></i>
+          <span>الشوربة</span>
+        </button>
+        <button class="category-tab" data-category="السلطات">
+          <i class="fas fa-leaf"></i>
+          <span>السلطات</span>
+        </button>
+      </div>
+
+      <!-- Sub Category Tabs (for main dishes) -->
+      <div class="sub-category-tabs" id="sub-tabs" style="display: none;">
+        <button class="category-tab active" data-category="مكس جريل">
+          <i class="fas fa-fire"></i>
+          <span>مكس جريل</span>
+        </button>
+        <button class="category-tab" data-category="مكس سوبر">
+          <i class="fas fa-star"></i>
+          <span>مكس سوبر</span>
+        </button>
+        <button class="category-tab" data-category="مكس اسبيشيال">
+          <i class="fas fa-crown"></i>
+          <span>مكس اسبيشيال</span>
+        </button>
+      </div>
+
+      <!-- Dishes Container -->
+      <div class="dishes-container" id="dishes-container"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="closeImageModal()">&times;</span>
+      <img id="modalImage" class="modal-image" src="" alt="">
+    </div>
+  </div>
+
+  <!-- Shared Components -->
+  <script src="./assets/js/components.js"></script>
+
+  <script>
+    // فهرس سريع للوصول للصنف بالـ id أثناء الإضافة للسلة
+    const menuItemsIndex = {};
+    const menuData = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMenu();
+    });
+
+    async function loadMenu() {
+      const sources = [
+        { url: './data/main_dishes.json', category: 'main_dishes' },
+        { url: './data/appetizers.json', category: 'المقبلات' },
+        { url: './data/soup.json',        category: 'الشوربة' },
+        { url: './data/salads.json',      category: 'السلطات' }
+      ];
+
+      try {
+        const promises = sources.map(async (src) => {
+          const res = await fetch(src.url);
+          const data = await res.json();
+          
+          if (src.category === 'main_dishes') {
+            // Handle main dishes structure
+            const mainDishes = data.main_dishes;
+            menuData['مكس جريل'] = mainDishes['مكس جريل'];
+            menuData['مكس سوبر'] = mainDishes['مكس سوبر'];
+            menuData['مكس اسبيشيال'] = mainDishes['مكس اسبيشيال'];
+            
+            // Index all main dishes
+            Object.values(mainDishes).forEach(categoryItems => {
+              categoryItems.forEach((item) => {
+                if (item && item.id) menuItemsIndex[item.id] = item;
+              });
+            });
+          } else {
+            // Handle other categories
+            menuData[src.category] = data;
+            data.forEach((it) => {
+              if (it && it.id) menuItemsIndex[it.id] = it;
+            });
+          }
+        });
+        await Promise.all(promises);
+
+        // Display main dishes first (sub-category)
+        displayDishes('مكس جريل');
+        // Show sub-tabs for main dishes
+        document.getElementById('sub-tabs').style.display = 'flex';
+        
+        setupCategoryTabs();
+        if (window.updateCartCounter) updateCartCounter();
+      } catch (e) {
+        console.error('Error loading menu', e);
+        document.getElementById('dishes-container').innerHTML = '<p class="error-message">حدث خطأ في تحميل القائمة</p>';
+      }
+    }
+
+    function setupCategoryTabs() {
+      // Setup main category tabs
+      const mainTabs = document.querySelectorAll('.category-tabs .category-tab');
+      mainTabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+          mainTabs.forEach((t) => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          const category = this.dataset.category;
+          const subTabs = document.getElementById('sub-tabs');
+          
+          if (category === 'الأطباق الرئيسية') {
+            // Show sub-tabs and display first main dish category
+            subTabs.style.display = 'flex';
+            displayDishes('مكس جريل');
+            // Reset sub-tabs to first active
+            const subTabButtons = subTabs.querySelectorAll('.category-tab');
+            subTabButtons.forEach(t => t.classList.remove('active'));
+            subTabButtons[0].classList.add('active');
+          } else {
+            // Hide sub-tabs and display selected category
+            subTabs.style.display = 'none';
+            displayDishes(category);
+          }
+        });
+      });
+
+      // Setup sub-category tabs (for main dishes)
+      const subTabs = document.querySelectorAll('.sub-category-tabs .category-tab');
+      subTabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+          subTabs.forEach((t) => t.classList.remove('active'));
+          this.classList.add('active');
+          displayDishes(this.dataset.category);
+        });
+      });
+    }
+
+    function displayDishes(category) {
+      const container = document.getElementById('dishes-container');
+      displayDishesInContainer(container, category);
+    }
+
+    function displayDishesInContainer(container, category) {
+      const dishes = menuData[category] || [];
+      if (!dishes.length) {
+        container.innerHTML = '<p class="no-dishes">لا توجد أصناف في هذا القسم حالياً</p>';
+        return;
+      }
+
+      // Filter out note objects and get actual dishes
+      const actualDishes = dishes.filter(dish => dish.id);
+      const note = dishes.find(dish => dish['..']);
+
+      let html = '<div class="dishes-grid">';
+      actualDishes.forEach((dish, idx) => {
+        html += `
+          <div class="dish-card fade-in-up" style="animation-delay: ${idx * 100}ms">
+            <div class="dish-badge">${category}</div>
+            <div class="dish-image">
+              <img src="${dish.image}" alt="${dish.title}" loading="lazy" onerror="this.src='assets/images/placeholder.jpg'">
+            </div>
+            <div class="dish-content">
+              <h3 class="dish-title">${dish.title}</h3>
+              ${dish.description ? `<p class="dish-description">${dish.description}</p>` : ''}
+              <div class="dish-footer">
+                <div class="dish-price">
+                  <span class="price-amount">${dish.price}</span>
+                  <span class="price-currency">جنيه</span>
+                </div>
+                <div class="dish-actions">
+                  <div class="quantity-control">
+                    <button class="quantity-btn minus" onclick="updateQuantity('${dish.id}', -1)">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <span class="quantity-display" id="qty-${dish.id}">1</span>
+                    <button class="quantity-btn plus" onclick="updateQuantity('${dish.id}', 1)">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <button class="add-to-cart-btn" onclick="addToCart('${dish.id}')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>أضف للسلة</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      });
+      html += '</div>';
+
+      // Add note if exists (for main dishes)
+      if (note) {
+        html += `
+          <div class="category-note">
+            <i class="fas fa-info-circle"></i>
+            <span>${note['..']}</span>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+
+      // إعادة تفعيل الحركات
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible'));
+      }, { threshold: 0.1 });
+      container.querySelectorAll('.dish-card').forEach((card) => observer.observe(card));
+    }
+
+    // Store quantities for each dish
+    const dishQuantities = {};
+
+    function updateQuantity(dishId, change) {
+      if (!dishQuantities[dishId]) {
+        dishQuantities[dishId] = 1;
+      }
+      
+      const newQuantity = dishQuantities[dishId] + change;
+      
+      if (newQuantity >= 1 && newQuantity <= 99) {
+        dishQuantities[dishId] = newQuantity;
+        const display = document.getElementById(`qty-${dishId}`);
+        if (display) {
+          display.textContent = newQuantity;
+        }
+        
+        // Update button states
+        const minusBtn = document.querySelector(`[onclick="updateQuantity('${dishId}', -1)"]`);
+        const plusBtn = document.querySelector(`[onclick="updateQuantity('${dishId}', 1)"]`);
+        
+        if (minusBtn) {
+          minusBtn.disabled = newQuantity <= 1;
+        }
+        if (plusBtn) {
+          plusBtn.disabled = newQuantity >= 99;
+        }
+      }
+    }
+
+    function addToCart(dishId) {
+      const dish = menuItemsIndex[dishId];
+      if (!dish) return;
+      
+      const quantity = dishQuantities[dishId] || 1;
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const existing = cart.find((i) => i.id === dishId);
+      
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ 
+          id: dish.id, 
+          title: dish.title, 
+          image: dish.image, 
+          price: dish.price, 
+          quantity: quantity 
+        });
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      showNotification(`تمت إضافة ${quantity} قطعة للسلة بنجاح`, 'success');
+      updateCartCounter();
+      
+      // Reset quantity to 1 after adding
+      dishQuantities[dishId] = 1;
+      const display = document.getElementById(`qty-${dishId}`);
+      if (display) {
+        display.textContent = '1';
+      }
+      
+      // Reset button states
+      const minusBtn = document.querySelector(`[onclick="updateQuantity('${dishId}', -1)"]`);
+      const plusBtn = document.querySelector(`[onclick="updateQuantity('${dishId}', 1)"]`);
+      if (minusBtn) minusBtn.disabled = true;
+      if (plusBtn) plusBtn.disabled = false;
+    }
+
+    function showNotification(message, type = 'success') {
+      const el = document.createElement('div');
+      el.className = `notification notification-${type}`;
+      el.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i><span>${message}</span>`;
+      document.body.appendChild(el);
+      setTimeout(() => el.classList.add('show'), 50);
+      setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 300); }, 3000);
+    }
+
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const total = cart.reduce((s, i) => s + (i.quantity || 0), 0);
+      const cartLink = document.querySelector('.cart-nav-link');
+      if (!cartLink) return;
+      
+      let badge = cartLink.querySelector('.cart-badge');
+      if (badge) {
+        badge.remove();
+      }
+      
+      // Only show badge on cart page
+      const isCartPage = document.querySelector('main.cart-page') !== null;
+      
+      if (total > 0 && isCartPage) {
+        badge = document.createElement('span'); 
+        badge.className = 'cart-badge'; 
+        badge.textContent = String(total);
+        cartLink.appendChild(badge);
+      }
+    }
+    window.updateCartCounter = updateCartCounter;
+
+    // وظائف Modal الصور
+    function openImageModal(img) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      
+      modal.classList.add('show');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      
+      // منع التمرير في الخلفية
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('show');
+      
+      // إعادة تفعيل التمرير
+      document.body.style.overflow = 'auto';
+    }
+
+    // إغلاق Modal بالضغط على Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+  </script>
+</body>
+</html>

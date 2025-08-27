@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم أوزي - أفضل مشويات مصرية أصيلة</title>
-    <meta name="description" content="مطعم أوزي للمشويات المصرية الأصيلة - أشهى الكباب والكفتة والفراخ المشوية على الفحم في القاهرة">
+    <title>أوزي - أفضل مشويات مصرية</title>
+    <meta name="description" content="أوزي للمشويات المصرية الأصيلة - أشهى المشويات المصرية و العربية">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -18,42 +18,14 @@
     <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <!-- Logo Section -->
-                <div class="logo-section">
-                    <img src="./assets/images/logo.jpeg" alt="أوزي" class="logo">
-                    <a href="index.html" class="logo-text">أوزي</a>
-                </div>
-                
-                <!-- Navigation -->
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="menu.html" class="nav-link">Menu</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                        <li><a href="pages/offers.html" class="nav-link">Offers</a></li>
-                        <li><a href="cart.html" class="nav-link">Cart</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="فتح القائمة">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <!-- Header (loaded dynamically) -->
+    <div id="site-header"></div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in-up">
-            <h1 class="hero-title">مرحباً بكم في مطعم أوزي</h1>
-            <p class="hero-subtitle">تذوقوا أشهى المشويات المصريةالأصيلة </p>
+            <h1 class="hero-title">مرحباً بك في أوزي</h1>
+            <p class="hero-subtitle">تذوقوا أشهى المشويات و الصواني المتنوعة </p>
             <div class="hero-buttons">
                 <a href="menu.html" class="btn btn-primary">تصفح القائمة</a>
                 <a href="pages/offers.html" class="btn btn-outline">العروض الخاصة</a>
@@ -127,134 +99,16 @@
         </div>
     </section>
 
-    <!-- Main Dishes Section -->
-    <section class="main-dishes-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">الأطباق الرئيسية</h2>
-                <p class="section-subtitle">
-                    تشكيلة متنوعة من أشهى المشويات المصرية الأصيلة المحضرة بعناية فائقة
-                </p>
-            </div>
-            
-            <!-- Category Tabs -->
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="مكس جريل">
-                    <i class="fas fa-fire"></i>
-                    <span>مكس جريل</span>
-                </button>
-                <button class="category-tab" data-category="مكس سوبر">
-                    <i class="fas fa-star"></i>
-                    <span>مكس سوبر</span>
-                </button>
-                <button class="category-tab" data-category="مكس اسبيشيال">
-                    <i class="fas fa-crown"></i>
-                    <span>مكس اسبيشيال</span>
-                </button>
-            </div>
 
-            <!-- Dishes Container -->
-            <div class="dishes-container" id="dishes-container">
-                <!-- Dishes will be loaded here dynamically -->
-            </div>
+    <!-- Footer (loaded dynamically) -->
+    <div id="site-footer"></div>
 
-            <div class="view-full-menu">
-                <a href="menu.html" class="btn btn-primary btn-large">
-                    <i class="fas fa-utensils"></i>
-                    عرض القائمة كاملة
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Restaurant Info -->
-                <div class="footer-section">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <img src="./assets/images/logo.jpeg" alt="أوزي" style="width: 40px; height: 40px; border-radius: 50%; margin-left: 15px;">
-                        <h3>أوزي</h3>
-                    </div>
-                    <p>
-                        أفضل مطعم مشويات مصرية أصيلة. نقدم لكم أشهى المأكولات المشوية على الفحم 
-                        الطبيعي بأعلى جودة.
-                    </p>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3>معلومات التواصل</h3>
-                    <ul class="footer-contact-list">
-                        <li><i class="fas fa-phone"></i>201003309100</li>
-                        <li><i class="fas fa-mobile-alt"></i>201013500050</li>
-                        <li><i class="fas fa-map-marker-alt"></i> ميدان المسلة - مدينة الفيوم</li>
-                    </ul>
-                </div>
-
-                <!-- Working Hours -->
-                <div class="footer-section">
-                    <h3>ساعات العمل</h3>
-                    <ul class="footer-hours-list">
-                        <li><i class="fas fa-clock"></i> طوال أيام الأسبوع: 10 صباحاً - 4 فجراً</li>
-                        <li><i class="fas fa-truck"></i> متاح للتوصيل طوال ساعات العمل</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 أوزي. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Shared Components Loader -->
+    <script src="./assets/js/components.js"></script>
 
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-            const body = document.body;
-            
-            function toggleMobileMenu() {
-                mobileMenuBtn.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                body.classList.toggle('mobile-menu-open');
-            }
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-            }
-            
-            // Close mobile menu when clicking on nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth < 768) {
-                        toggleMobileMenu();
-                    }
-                });
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (window.innerWidth < 768 && 
-                    !mobileMenuBtn.contains(event.target) && 
-                    !navMenu.contains(event.target) && 
-                    navMenu.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
-            });
-
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768 && navMenu.classList.contains('active')) {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    body.classList.remove('mobile-menu-open');
-                }
-            });
-
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -522,25 +376,70 @@
             }, 3000);
         }
 
-        // Update cart counter
-        function updateCartCounter() {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            
-            // Update cart link if exists
-            const cartLink = document.querySelector('.nav-link[href="cart.html"]');
-            if (cartLink && totalItems > 0) {
-                const existingBadge = cartLink.querySelector('.cart-badge');
-                if (existingBadge) {
-                    existingBadge.textContent = totalItems;
-                } else {
-                    const badge = document.createElement('span');
-                    badge.className = 'cart-badge';
-                    badge.textContent = totalItems;
-                    cartLink.appendChild(badge);
-                }
-            }
+// Quick view function
+function quickView(dishId) {
+    // Find the dish
+    let dish = null;
+    for (const category in window.mainDishesData) {
+        const found = window.mainDishesData[category].find(d => d.id === dishId);
+        if (found) {
+            dish = found;
+            break;
         }
-    </script>
-</body>
-</html>
+    }
+    
+    if (dish) {
+        // Create modal or redirect to detail page
+        console.log('Quick view for:', dish);
+        // You can implement a modal here
+    }
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Update cart counter
+function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+    
+    const cartLink = document.querySelector('.cart-nav-link');
+    if (!cartLink) return;
+    
+    // Remove existing badge
+    let badge = cartLink.querySelector('.cart-badge');
+    if (badge) {
+        badge.remove();
+    }
+    
+    // Only show badge on cart page
+    const isCartPage = document.querySelector('main.cart-page') !== null;
+    
+    // Add badge if there are items AND we're on the cart page
+    if (totalItems > 0 && isCartPage) {
+        badge = document.createElement('span');
+        badge.className = 'cart-badge';
+        badge.textContent = totalItems;
+        cartLink.appendChild(badge);
+    }
+}

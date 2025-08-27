@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السلة - مطعم أوزي</title>
+  <meta name="description" content="سلة التسوق - مطعم أوزي للمشويات المصرية">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg">
+  <!-- Cart styles moved to assets/css/style.css and assets/css/responsive.css -->
+</head>
+<body>
+  <!-- Header (loaded dynamically) -->
+  <div id="site-header"></div>
+
+  <main class="cart-page">
+    <div class="container cart-wrap">
+      <section class="cart-items-section">
+        <h2><i class="fas fa-shopping-cart"></i> سلة التسوق</h2>
+        <div id="cart-items"></div>
+      </section>
+      
+      <aside class="summary">
+        <h3><i class="fas fa-receipt"></i> ملخص الطلب</h3>
+        <table>
+          <tr>
+            <td>المجموع الفرعي</td>
+            <td id="subtotal">0 جنيه</td>
+          </tr>
+          <tr>
+            <td>رسوم التوصيل</td>
+            <td id="delivery-fee">20 جنيه</td>
+          </tr>
+          <tr class="total-row">
+            <td>الإجمالي الكلي</td>
+            <td id="grand-total">20 جنيه</td>
+          </tr>
+        </table>
+        
+        <div class="form">
+          <input id="customer-name" name="name" type="text" autocomplete="name" placeholder="الاسم الكامل *" required />
+          <input id="customer-phone" name="tel" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]{7,15}" placeholder="رقم الهاتف *" required />
+          <input id="customer-address" name="address" type="text" autocomplete="street-address" placeholder="العنوان بالتفصيل *" required />
+          <textarea id="customer-notes" name="notes" placeholder="ملاحظات إضافية (اختياري)" rows="3" autocomplete="off"></textarea>
+        </div>
+        
+        <button id="submit-order" class="submit" disabled>
+          <i class="fas fa-paper-plane"></i>
+          إرسال الطلب
+        </button>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer (loaded dynamically) -->
+  <div id="site-footer"></div>
+
+  <!-- Shared Components Loader -->
+  <script src="./assets/js/components.js"></script>
+
+  <script>
+    // Cart functionality
+    let cart = [];
+    const deliveryFee = 20;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCart();
+      setupFormValidation();
+      if (window.updateCartCounter) updateCartCounter();
+    });
+
+    function loadCart() {
+      try {
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        displayCart();
+        updateSummary();
+      } catch (error) {
+        console.error('Error loading cart:', error);
+        cart = [];
+        displayCart();
+      }
+    }
+
+    function displayCart() {
+      const container = document.getElementById('cart-items');
+      
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart">
+            <h3><i class="fas fa-shopping-cart"></i> السلة فارغة</h3>
+            <p>لم تقم بإضافة أي منتجات إلى السلة بعد</p>
+            <a href="menu.html" class="btn">
+              <i class="fas fa-utensils"></i>
+              تصفح القائمة
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      cart.forEach((item, index) => {
+        const lineTotal = item.price * item.quantity;
+        html += `
+          <div class="cart-row">
+            <img src="${item.image}" alt="${item.title}" class="thumb" loading="lazy" decoding="async" fetchpriority="low" onerror="this.src='./assets/images/placeholder.jpg'">
+            <div class="cart-content">
+              <div class="name">${item.title}</div>
+              <div class="quantity-section">
+                <div class="quantity-control">
+                  <button class="quantity-btn" onclick="updateCartQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''} aria-label="تقليل الكمية">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <span class="quantity-display">${item.quantity}</span>
+                  <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)" ${item.quantity >= 99 ? 'disabled' : ''} aria-label="زيادة الكمية">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="price-section">
+                <div class="line-total">${lineTotal} جنيه</div>
+              </div>
+              <div class="remove-section">
+                <button class="remove" onclick="removeFromCart(${index})" title="حذف">
+                  <i class="fas fa-trash"></i>
+                  <span>حذف</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      container.innerHTML = html;
+    }
+
+    function updateCartQuantity(index, change) {
+      if (cart[index]) {
+        const newQuantity = cart[index].quantity + change;
+        if (newQuantity >= 1 && newQuantity <= 99) {
+          cart[index].quantity = newQuantity;
+          saveCart();
+          displayCart();
+          updateSummary();
+          if (window.updateCartCounter) updateCartCounter();
+        }
+      }
+    }
+
+    function removeFromCart(index) {
+      if (confirm('هل تريد حذف هذا المنتج من السلة؟')) {
+        cart.splice(index, 1);
+        saveCart();
+        displayCart();
+        updateSummary();
+        if (window.updateCartCounter) updateCartCounter();
+        showNotification('تم حذف المنتج من السلة', 'success');
+      }
+    }
+
+    function saveCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function updateSummary() {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const grandTotal = subtotal + (cart.length > 0 ? deliveryFee : 0);
+      
+      document.getElementById('subtotal').textContent = `${subtotal} جنيه`;
+      document.getElementById('delivery-fee').textContent = cart.length > 0 ? `${deliveryFee} جنيه` : '0 جنيه';
+      document.getElementById('grand-total').textContent = `${grandTotal} جنيه`;
+      
+      // Enable/disable submit button based on cart content
+      const submitBtn = document.getElementById('submit-order');
+      submitBtn.disabled = cart.length === 0;
+    }
+
+    function setupFormValidation() {
+      const requiredFields = ['customer-name', 'customer-phone', 'customer-address'];
+      const submitBtn = document.getElementById('submit-order');
+      
+      requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        field.addEventListener('input', validateForm);
+      });
+      
+      function validateForm() {
+        const allFilled = requiredFields.every(fieldId => {
+          const field = document.getElementById(fieldId);
+          return field.value.trim() !== '';
+        });
+        
+        submitBtn.disabled = !allFilled || cart.length === 0;
+      }
+      
+      submitBtn.addEventListener('click', submitOrder);
+    }
+
+    function submitOrder() {
+      const customerData = {
+        name: document.getElementById('customer-name').value.trim(),
+        phone: document.getElementById('customer-phone').value.trim(),
+        address: document.getElementById('customer-address').value.trim(),
+        notes: document.getElementById('customer-notes').value.trim()
+      };
+      
+      if (!customerData.name || !customerData.phone || !customerData.address) {
+        showNotification('يرجى ملء جميع البيانات المطلوبة', 'error');
+        return;
+      }
+      
+      if (cart.length === 0) {
+        showNotification('السلة فارغة', 'error');
+        return;
+      }
+      
+      const orderData = {
+        items: cart,
+        customer: customerData,
+        subtotal: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        deliveryFee: deliveryFee,
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + deliveryFee,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Simulate order submission
+      const submitBtn = document.getElementById('submit-order');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+      
+      setTimeout(() => {
+        // Clear cart
+        cart = [];
+        localStorage.removeItem('cart');
+        
+        // Show success message
+        showNotification('تم إرسال طلبك بنجاح! سنتواصل معك قريباً', 'success');
+        
+        // Reset form
+        document.getElementById('customer-name').value = '';
+        document.getElementById('customer-phone').value = '';
+        document.getElementById('customer-address').value = '';
+        document.getElementById('customer-notes').value = '';
+        
+        // Update display
+        displayCart();
+        updateSummary();
+        if (window.updateCartCounter) updateCartCounter();
+        
+        // Reset button
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الطلب';
+        submitBtn.disabled = true;
+        
+        // Redirect to home after 3 seconds
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 3000);
+        
+      }, 2000);
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 4000);
+    }
+
+    // Update cart counter function (compatible with other pages)
+    function updateCartCounter() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+      
+      const cartLink = document.querySelector('.cart-nav-link');
+      if (!cartLink) return;
+      
+      // Remove existing badge
+      let badge = cartLink.querySelector('.cart-badge');
+      if (badge) {
+        badge.remove();
+      }
+      
+      // Only show badge on cart page (we are on cart page here)
+      const isCartPage = document.querySelector('main.cart-page') !== null;
+      
+      // Add badge if there are items and we're on cart page
+      if (totalItems > 0 && isCartPage) {
+        badge = document.createElement('span');
+        badge.className = 'cart-badge';
+        badge.textContent = totalItems;
+        cartLink.appendChild(badge);
+      }
+    }
+    
+    // Make function available globally
+    window.updateCartCounter = updateCartCounter;
+  </script>
+</body>
+</html>

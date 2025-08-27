@@ -29,73 +29,73 @@
           "description": "وجبة رومي + 1/4 كفتة فراخ",
           "price": 269
         },
-        {"..":"يقدم مع الوجبات أرز أبيض بالشعريه . سلطة طحينة ، سلطة خضراء . خبز"}
+        {"..":"يقدم مع الوجبات أرز أبيض بالشعريه - سلطة طحينة - سلطة خضراء - خبز"}
       ],
       "مكس سوبر": [
         {
           "id": "main_dish5",
           "image": "assets/images/main_dishes/مكس جريل سوبر.jpg",
           "title": "مكس جريل سوبر",
-          "description": "1/2 ق كفتة + 1/2 ق كباب + 1/2 شيش مخلي",
+          "description": "1/2 كفتة + 1/2 كباب + 1/2 شيش مخلي",
           "price": 275
         },
         {
           "id": "main_dish6",
           "image": "assets/images/main_dishes/مكس جريل سوبر شواية.jpg",
           "title": "مكس جريل سوبر شواية",
-          "description": "1/2 ق كفتة + 1/2 ق كباب + ربع شوايه",
+          "description": "1/2 كفتة + 1/2 كباب + ربع شوايه",
           "price": 300
         },
         {
           "id": "main_dish7",
           "image": "assets/images/main_dishes/مكس سوبر حمام.png",
           "title": "مكس حمام سوبر",
-          "description": "1/2 ق كفتة + 1/2 ق كباب + حمام محشي",
+          "description": "1/2 كفتة + 1/2 كباب + حمام محشي",
           "price": 400
         },
         {
           "id": "main_dish8",
           "image": "assets/images/main_dishes/مكس سوبر بط.jpg",
           "title": "مكس سوبر بط",
-          "description": "1/2 ق كفتة + 1/2 ق كباب + ورك بطة",
+          "description": "1/2 كفتة + 1/2 كباب + ورك بطة",
           "price": 405
         },
         {
           "id": "main_dish9",
           "image": "assets/images/main_dishes/مكس سوبر رومي.jpg",
           "title": "مكس رومي سوبر",
-          "description": "1/2 ق كفتة + 1/2 ق كباب + رومي",
+          "description": "1/2 كفتة + 1/2 كباب + رومي",
           "price": 425
         },
-        {"..":"يقدم مع الوجبات أرز أبيض بالشعريه . سلطة طحينة ، سلطة خضراء . خبز"}
+        {"..":"يقدم مع الوجبات أرز أبيض بالشعريه - سلطة طحينة - سلطة خضراء - خبز"}
       ],
       "مكس اسبيشيال": [
         {
           "id": "main_dish10",
           "image": "assets/images/main_dishes/مكس اسبشيال.jpg",
           "title": "مكس اسبشيال",
-          "description": "3/4 ق كفتة + 3/4 ق كباب + ربع شيش مخلي",
+          "description": "3/4 كفتة + 3/4 كباب + ربع شيش مخلي",
           "price": 395
         },
         {
           "id": "main_dish11",
           "image": "assets/images/main_dishes/مكس اسبشيال بط.jpg",
           "title": "مكس بط وورك اسبيشيال",
-          "description": "3/4 ق كفتة + 3/4 ق كباب + ورك بطة",
+          "description": "3/4 كفتة + 3/4 كباب + ورك بطة",
           "price": 470
         },
         {
           "id": "main_dish12",
           "image": "assets/images/main_dishes/مكس اسبشيال حمام.jpg",
           "title": "مكس حمام اسبيشيال",
-          "description": "3/4 ق كفتة + 3/4 ق كباب + حمام محشي",
+          "description": "3/4 كفتة + 3/4 كباب + حمام محشي",
           "price": 465
         },
         {
           "id": "main_dish13",
           "image": "assets/images/main_dishes/مكس اسبشيال رومي.jpeg",
           "title": "مكس رومي اسبيشيال",
-          "description": "3/4 ق كفتة + 3/4 ق كباب + رومي",
+          "description": "3/4 كفتة + 3/4 كباب + رومي",
           "price": 490
         },
         {
@@ -105,7 +105,7 @@
           "description": "ربع ريش + ربع شيش",
           "price": 465
         },
-        {"..":"يقدم مع الوجبات أرز  بسمتي . سلطة طحينة ، سلطة خضراء . خبز"}
+        {"..":"يقدم مع الوجبات أرز  بسمتي - سلطة طحينة - سلطة خضراء - خبز"}
       ]
     }
   }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "appetizers1",
+    "image": "assets/images/appetizers/سمبوبة 4 قطع.png",
+    "title": "سمبوسة ٤ قطع",
+    "price": "75"
+  },
+  {
+    "id": "appetizers2",
+    "image": "assets/images/appetizers/بطاطس بوم فريت.png",
+    "title": "بطاطس بوم فريت",
+    "price": "35"
+  },
+  {
+    "id": "appetizers3",
+    "image": "assets/images/appetizers/مكس مقبلات.png",
+    "title": "مكس مقبلات",
+    "price": "95"
+  },
+  {
+    "id": "appetizers4",
+    "image": "assets/images/appetizers/مكس مقبلات كبير.png",
+    "title": "مكس مقبلات كبير",
+    "price": "190"
+  },
+  {
+    "id": "appetizers5",
+    "image": "assets/images/appetizers/محشي مشكل.png",
+    "title": "محشي مشكل",
+    "price": "40"
+  },
+  {
+    "id": "appetizers6",
+    "image": "assets/images/appetizers/محشي ورق عنب.png",
+    "title": "محشي ورق عنب",
+    "price": "45"
+  },
+  {
+    "id": "appetizers7",
+    "image": "assets/images/appetizers/ممبار وزن 1 كيلو.png",
+    "title": "ممبر وزن ١ كيلو",
+    "price": "280"
+  },
+  {
+    "id": "appetizers8",
+    "image": "assets/images/appetizers/كبيبة 4 قطع.jpeg",
+    "title": "كبيبة 4 قطع",
+    "price": "75"
+  }
+]
