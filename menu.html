@@ -69,8 +69,42 @@
         </button>
 
         <button class="category-tab" data-category="الطواجن">
-          <i class="fas fa-bowl-food"></i>
           <span>الطواجن</span>
+        </button>
+
+        <button class="category-tab" data-category="طاسات">
+          <i class="fas fa-bowl-food"></i>
+          <span>طاسات</span>
+        </button>
+
+        <button class="category-tab" data-category="الدجاج">
+          <i class="fas fa-drumstick-bite"></i>
+          <span>الدجاج</span>
+        </button>
+
+        <button class="category-tab" data-category="فرايد تشكن">
+          <i class="fas fa-feather-pointed"></i>
+          <span>فرايد تشكن</span>
+        </button>
+
+        <button class="category-tab" data-category="وجبات أطفال">
+          <i class="fas fa-feather-pointed"></i>
+          <span>وجبات أطفال</span>
+        </button>
+
+        <button class="category-tab" data-category="المندي">
+          <i class="fas fa-drumstick-bite"></i>
+          <span>المندي</span>
+        </button>
+
+        <button class="category-tab" data-category="التسوية">
+          <i class="fas fa-fire"></i>
+          <span>التسوية</span>
+        </button>
+
+        <button class="category-tab" data-category="الصواني">
+          <i class="fas fa-layer-group"></i>
+          <span>الصواني</span>
         </button>
       </div>
 
@@ -120,14 +154,21 @@
 
     async function loadMenu() {
       const sources = [
-        { url: './data/main_dishes.json', category: 'main_dishes'},
-        { url: './data/appetizers.json', category: 'المقبلات'},
-        { url: './data/soup.json', category: 'الشوربة'},
-        { url: './data/salads.json', category: 'السلطات'},
-        { url: './data/rice.json', category: 'الأرز'},
-        { url: './data/duck.json', category: 'البط و الرومي'},
-        { url: './data/grilled.json', category: 'مشاوي يالكيلو'},
-        { url: './data/casseroles.json', category: 'الطواجن'},
+        { url: 'assets/data/main_dishes.json', category: 'main_dishes'},
+        { url: 'assets/data/appetizers.json', category: 'المقبلات'},
+        { url: 'assets/data/soup.json', category: 'الشوربة'},
+        { url: 'assets/data/salads.json', category: 'السلطات'},
+        { url: 'assets/data/rice.json', category: 'الأرز'},
+        { url: 'assets/data/duck.json', category: 'البط و الرومي'},
+        { url: 'assets/data/grilled.json', category: 'مشاوي يالكيلو'},
+        { url: 'assets/data/casseroles.json', category: 'الطواجن'},
+        { url: 'assets/data/bowls.json', category: 'طاسات'},
+        { url: 'assets/data/chicken.json', category: 'الدجاج'},
+        { url: 'assets/data/fride_chicken.json', category: 'فرايد تشكن'},
+        { url: 'assets/data/kids.json', category: 'وجبات أطفال'},
+        { url: 'assets/data/mandy.json', category: 'المندي'},
+        { url: 'assets/data/cooking.json', category: 'التسوية'},
+        { url: 'assets/data/trays.json', category: 'الصواني'}
       ];
 
       try {
@@ -245,6 +286,7 @@
             <div class="dish-content">
               <h3 class="dish-title">${dish.title}</h3>
               ${dish.description ? `<p class="dish-description">${dish.description}</p>` : ''}
+              ${dish.note ? `<p class="dish-note"><i class='fas fa-info-circle'></i> ${dish.note}</p>` : ''}
               ${hasSizes ? `
                 <div class="size-select-wrap">
                   <label for="size-${dish.id}" class="size-label">${sizeLabelText}</label>

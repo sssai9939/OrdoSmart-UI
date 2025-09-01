@@ -1,42 +1,42 @@
 [
     {
     "id": "fride_chicken1",
-    "image": "images/fride_chicken/اوزي دنر.jpg",
+    "image": "assets/images/fride_chicken/اوزي دنر.jpg",
     "title": "اوزي دينر",
     "description": "2 ق دجاج مع أرز بسمتي و ثومية و بطاطس و عيش",
     "price": 125
     },
     {
     "id": "fride_chicken2",
-    "image": "images/fride_chicken/اوزي كينج.webp",
+    "image": "assets/images/fride_chicken/اوزي كينج.webp",
     "title": "اوزي كينج",
     "description": "3 ق دجاج مع أرز بسمتي و ثومية و بطاطس و عيش",
     "price": 170
     },
     {
     "id": "fride_chicken3",
-    "image": "images/fride_chicken/اوزي عائلي.jpg",
+    "image": "assets/images/fride_chicken/اوزي عائلي.jpg",
     "title": "اوزي عائلي",
     "description": "8 ق دجاج مع أرز بسمتي و ثومية و بطاطس و عيش",
     "price": 470
     },
     {
     "id": "fride_chicken4",
-    "image": "images/fride_chicken/اوزي ستربس3.jpg",
+    "image": "assets/images/fride_chicken/اوزي ستربس3.jpg",
     "title": "اوزي ستريبس عادي",
     "description": "3 ق ستريبس مع أرز بسمتي و ثومية و بطاطس و عيش",
     "price": 107
     },
     {
     "id": "fride_chicken5",
-    "image": "images/fride_chicken/اوزي ستربس5.jpg",
+    "image": "assets/images/fride_chicken/اوزي ستربس5.jpg",
     "title": "اوزي ستريبس عادي",
     "description": "5 ق ستريبس و أرز بسمتي و طحينة و عيش",
     "price": 153
     },
     {
     "id": "fride_chicken6",
-    "image": "images/fride_chicken/ربع بانية.jpg",
+    "image": "assets/images/fride_chicken/ربع بانية.jpg",
     "title": "1/4 بانيه مع بطاطس",
     "description": null,
     "price": 120

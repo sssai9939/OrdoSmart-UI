@@ -1,0 +1,45 @@
+[
+    {
+      "id": "mandy1",
+      "image": "assets/images/mandy/وﺟﺒﺔ ﻣﻨﺪى.png",
+      "title": "وجبة مندي",
+      "price": "450"
+    },
+    {
+      "id": "mandy2",
+      "image": "assets/images/mandy/ﻟﺤﻢ اوزي ﺳﺎدة.png",
+      "title": "لحم اوزي سادة",
+      "price": "420"
+    },
+    {
+      "id": "mandy3",
+      "image": "assets/images/mandy/ﻟﺤﻢ اوزى ﻣﻊ الفتة.png",
+      "title": "لحم اوزي مع الفتة",
+      "price": "440"
+    },
+    {
+      "id": "mandy4",
+      "image": "assets/images/mandy/ﻟﺤﻢ اوزي ﻣﻊ ارز اﻟﺒﺴﻤﺘﻰ.png",
+      "title": "لحم اوزي مع الأرز البسمتي",
+      "price": "440"
+    },
+    {
+      "id": "mandy5",
+      "image": "assets/images/mandy/ﻣﻮزة ﺳﺎدة.png",
+      "title": "موزة سادة",
+      "price": "420"
+    },
+    {
+      "id": "mandy6",
+      "image": "assets/images/mandy/ﻣﻮزة ﺑﺎﻟﻔﺘﺔ.png",
+      "title": "موزة بالفتة",
+      "price": "440"
+    },
+    {
+      "id": "mandy7",
+      "image": "assets/images/mandy/ﻣﻮزة ﺑﺎلارز اﻟﺒﺴﻤﺘﻲ.png",
+      "title": "موزة بالأرز البسمتي",
+      "price": "440"
+    }
+]
+

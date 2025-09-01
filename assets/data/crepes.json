@@ -27,11 +27,17 @@
       "description": null,
       "price": 35
     },
-    
     {
-      "extra": [
-        {"extra1": "اضافه قطعة بانية", "price": 20},
-        {"extra2": "اضافه جبنه موزريلا", "price": 20}
-      ]
+      "id": "extra1",
+      "image": "images/crepes/اضافة بانية.jpg",
+      "title": "اضافه قطعة بانية",
+      "price": 20
+    },
+    {
+      "id": "extra2",
+      "image": "images/crepes/اضافة موتزريلا.jpeg",
+      "title": "اضافه جبنه موتزريلا",
+      "price": 20
     }
+    
 ]

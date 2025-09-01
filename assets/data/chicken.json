@@ -1,89 +1,89 @@
 [
   {
     "id": "chicken1",
-    "image": "images/chicken/ربع فرخه ورك.png",
+    "image": "assets/images/chicken/ربع فرخه ورك.png",
     "title": "¼ فرخة ورك",
     "price": "75"
   },
   {
     "id": "chicken2",
-    "image": "images/chicken/ريع فرخه صدر.png",
+    "image": "assets/images/chicken/ريع فرخه صدر.png",
     "title": "¼ فرخة صدر",
     "price": "95"
   },
   {
     "id": "chicken3",
-    "image": "images/chicken/ربع فرخه ورك مع الارز البسمتى والعيش.png",
+    "image": "assets/images/chicken/ربع فرخه ورك مع الارز البسمتى والعيش.png",
     "title": "¼ فرخة ورك",
     "description": "مع الأرز البسمتي والعيش.",
     "price": "100"
   },
   {
     "id": "chicken4",
-    "image": "images/chicken/ريع فرخه صدر مع الارز البسمتى والعيش.png",
+    "image": "assets/images/chicken/ريع فرخه صدر مع الارز البسمتى والعيش.png",
     "title": "¼ فرخة صدر",
     "description": "مع الأرز البسمتي والعيش.",
     "price": "110"
   },
   {
     "id": "chicken5",
-    "image": "images/chicken/ربع فرخه ورك مع الارز البسمتى والعيش.png",
+    "image": "assets/images/chicken/ربع فرخه ورك مع الارز البسمتى والعيش.png",
     "title": "¼ فرخة ورك",
     "description": "مع الارز الابيض بالشعرية والعيش.",
     "price": "90"
   },
   {
     "id": "chicken6",
-    "image": "images/chicken/ريع فرخه صدر مع ارز ابيض والعيش.png",
+    "image": "assets/images/chicken/ريع فرخه صدر مع ارز ابيض والعيش.png",
     "title": "¼ فرخة صدر",
     "description": "مع الارز الابيض بالشعرية والعيش.",
     "price": "100"
   },
   {
     "id": "chicken7",
-    "image": "images/chicken/نص فرخه مشويه.png",
+    "image": "assets/images/chicken/نص فرخه مشويه.png",
     "title": "½ فرخة مشوي",
     "price": "160"
   },
   {
     "id": "chicken8",
-    "image": "images/chicken/نص فرخه مندي.png",
+    "image": "assets/images/chicken/نص فرخه مندي.png",
     "title": "½ فرخة مندي",
     "price": "180"
   },
   {
     "id": "chicken9",
-    "image": "images/chicken/فرخه مشويه.png",
+    "image": "assets/images/chicken/فرخه مشويه.png",
     "title": "فرخة مشوية",
     "price": "320"
   },
   {
     "id": "chicken10",
-    "image": "images/chicken/فرخه تيكا حار.png",
+    "image": "assets/images/chicken/فرخه تيكا حار.png",
     "title": "فرخة تكا حار",
     "price": "330"
   },
   {
     "id": "chicken11",
-    "image": "images/chicken/فرخه شيش عضم.png",
+    "image": "assets/images/chicken/فرخه شيش عضم.png",
     "title": "فرخة شيش عضم",
     "price": "320"
   },
   {
     "id": "chicken12",
-    "image": "images/chicken/فرخه شيش محلي.png",
-    "title": "فرخة شيش محلى",
+    "image": "assets/images/chicken/فرخه شيش مخلي.png",
+    "title": "فرخة شيش مخلى",
     "price": "410"
   },
   {
     "id": "chicken13",
-    "image": "images/chicken/فرخه مندي.png",
+    "image": "assets/images/chicken/فرخه مندي.png",
     "title": "فرخة مندي",
     "price": "360"
   },
   {
     "id": "chicken14",
-    "image": "images/chicken/فرخة رستو مع الارز.png",
+    "image": "assets/images/chicken/فرخة رستو مع الارز.png",
     "title": "فرخة روستو مع الارز",
     "price": "300"
   }

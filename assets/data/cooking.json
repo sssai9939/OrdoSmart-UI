@@ -1,0 +1,68 @@
+[
+  {
+    "id": "cooking1",
+    "image": "assets/images/cooking/تسوية فرخة على الفحم.png",
+    "title": "تسوية فرخة على الفحم",
+    "price": "65"
+  },
+  {
+    "id": "cooking2",
+    "image": "assets/images/cooking/تسوية كيلو كفته.png",
+    "title": "تسوية كيلو كفتة",
+    "price": "70"
+  },
+  {
+    "id": "cooking3",
+    "image": "assets/images/cooking/تسوية كيلو كباب.png",
+    "title": "تسوية كيلو كباب",
+    "price": "75"
+  },
+  {
+    "id": "cooking4",
+    "image": "assets/images/cooking/تسوية 1 ك لحم شرقي.png",
+    "title": "تسوية ا ك لحم شرقي",
+    "price": "65"
+  },
+  {
+    "id": "cooking5",
+    "image": "assets/images/cooking/تسوية 1 ك لحم مندي.png",
+    "title": "تسوية ا ك لحم مندي",
+    "price": "100"
+  },
+  {
+    "id": "cooking6",
+    "image": "assets/images/cooking/تسوية ديك رومي.png",
+    "title": "تسوية ديك رومي",
+    "price": "150"
+  },
+  {
+    "id": "cooking7",
+    "image": "assets/images/cooking/تسوية بطه.png",
+    "title": "تسوية بطة",
+    "price": "100"
+  },
+  {
+    "id": "cooking8",
+    "image": "assets/images/cooking/تسوية ارز ابيض.png",
+    "title": "تسوية أرز ابيض",
+    "price": "45"
+  },
+  {
+    "id": "cooking9",
+    "image": "assets/images/cooking/تسوية ارز بسمتي.png",
+    "title": "تسوية أرز بسمتي",
+    "price": "55"
+  },
+  {
+    "id": "cooking10",
+    "image": "assets/images/cooking/تسوية كيلو لحمه.png",
+    "title": "تسوية كيلو لحمة بارده",
+    "price": "65"
+  },
+  {
+    "id": "cooking11",
+    "image": "assets/images/cooking/تسوية فرخة بروست.png",
+    "title": "تسوية فرخة بروست",
+    "price": "120"
+  }
+]

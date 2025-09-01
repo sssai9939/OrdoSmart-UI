@@ -338,6 +338,26 @@ button:focus {
     font-weight: 500;
 }
 
+/* Per-item note (e.g., serves N people, pre-order) */
+.dish-note {
+    background: #fff9e6;
+    border-right: 3px solid #ffc107;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #856404;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: -8px 0 14px; /* pulls note closer to description */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dish-note i {
+    color: #ffc107;
+}
+
 .dish-section-subtitle {
     color: #514242;
     font-size: 18px;
@@ -1068,6 +1088,43 @@ button:focus {
     font-weight: 900;
     color: #777;
     margin-right: 6px;
+}
+
+/* Mobile layout: make size/type card full-width, stacked, and centered above price */
+@media (max-width: 576px) {
+  /* Stack price vertically and add a label above it */
+  .dish-price {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .dish-price::before {
+    content: 'السعر';
+    font-weight: 700;
+    color: #000;
+    font-size: 13px;
+    line-height: 1;
+  }
+  .dish-content .size-select-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px; /* keeps a nice width on small phones */
+    padding: 10px 12px;
+    margin: 8px auto 0; /* centered above price */
+  }
+
+  .dish-content .size-label {
+    margin: 0 0 6px 0; /* move label above the select */
+    font-size: 14px;
+  }
+
+  .dish-content .size-select {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Print Styles */

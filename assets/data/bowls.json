@@ -1,0 +1,16 @@
+[
+    {
+      "id": "Bowls1",
+      "image": "assets/images/bowls/bowls1.jpg",
+      "title": "طاسه كبده بالليه الضاني",
+      "description": "تقدم مع أرز أبيض بالشعرية",
+      "price": 260
+    },
+    {
+      "id": "Bowls2",
+      "image": "assets/images/bowls/bowls2.jpg",
+      "title": "طاسه سجق شرقي بالليه الضاني",
+      "description": "تقدم مع أرز أبيض بالشعرية",
+      "price": 260
+    }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "kids1",
+    "image": "assets/images/kids/وجبة اطفال اسبشيال.png",
+    "title": "وجبة اسبشيال",
+    "description": "1/8 كفتة ضاني وقطعتين بانيه وبوم فريت وسط",
+    "price": 210
+  },
+  {
+    "id": "kids2",
+    "image": "assets/images/kids/وجبة اطفال اوزي.jpg",
+    "title": "وجبة أطفال اوزي",
+    "description": "قطعة كفتة وقطعة بانيه وبوم فريت",
+    "price": 100
+  }
+]
+
