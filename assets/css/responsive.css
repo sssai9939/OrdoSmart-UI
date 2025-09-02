@@ -471,12 +471,12 @@
         height: 30px; 
     }
     .quantity-control button { 
-        width: 22px; 
-        height: 22px; 
+        width: 20px; 
+        height: 20px; 
         font-size: 10px; 
     }
     .quantity-control input { 
-        height: 25px; 
+        height: 23px; 
         font-size: 10px; 
     }
     .price-amount { font-size: 12px; }
