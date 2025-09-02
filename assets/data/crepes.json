@@ -1,41 +1,41 @@
 [
     {
       "id": "crepe1",
-      "image": "images/crepes/كريب بانية فريش.webp",
+      "image": "assets/images/crepes/كريب بانية فريش.webp",
       "title": "كريب بانيه فريش",
       "description": null,
       "price": 75
     },
     {
       "id": "crepe2",
-      "image": "images/crepes/كريب زنجر.jpg",
+      "image": "assets/images/crepes/كريب زنجر.jpg",
       "title": "كريب زنجر",
       "description": null,
       "price": 75
     },
     {
       "id": "crepe3",
-      "image": "images/crepes/كريب برجر.jpg",
+      "image": "assets/images/crepes/كريب برجر.jpg",
       "title": "كريب برجر",
       "description": null,
       "price": 55
     },
     {
       "id": "crepe4",
-      "image": "images/crepes/كريب بطاطس.jpg",
+      "image": "assets/images/crepes/كريب بطاطس.jpg",
       "title": "كريب بطاطس",
       "description": null,
       "price": 35
     },
     {
       "id": "extra1",
-      "image": "images/crepes/اضافة بانية.jpg",
+      "image": "assets/images/crepes/قطعة بانية.jpg",
       "title": "اضافه قطعة بانية",
       "price": 20
     },
     {
       "id": "extra2",
-      "image": "images/crepes/اضافة موتزريلا.jpeg",
+      "image": "assets/images/crepes/اضافة موتزريلا.jpeg",
       "title": "اضافه جبنه موتزريلا",
       "price": 20
     }

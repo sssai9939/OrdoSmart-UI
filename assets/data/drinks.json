@@ -52,6 +52,13 @@
     },
     {
       "id": "drink8",
+      "image": "assets/images/drinks/tea.jpg",
+      "title": "كوب شاي",
+      "description": null,
+      "price": "15" 
+    },
+    {
+      "id": "drink9",
       "image": "assets/images/drinks/water.webp",
       "title": "مياه معدنية صغيرة",
       "description": null,

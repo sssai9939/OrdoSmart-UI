@@ -1,7 +1,7 @@
 [
     {
     "id": "sandwich1",
-    "image": "images/sandwiches/سندوتش بانية.jpeg",
+    "image": "assets/images/sandwiches/سندوتش بانية.jpeg",
     "title": "سندوتش بانيه",
     "description": null,
     "size": [
@@ -11,7 +11,7 @@
     },
     {
     "id": "sandwich2",
-    "image": "images/sandwiches/سندوتش زنجر.jpg",
+    "image": "assets/images/sandwiches/سندوتش زنجر.jpg",
     "title": "سندوتش زنجر",
     "description": null,
     "size": [
@@ -21,7 +21,7 @@
     },
     {
     "id": "sandwich3",
-    "image": "images/sandwiches/سندوتش كفتة ضاني.webp",
+    "image": "assets/images/sandwiches/سندوتش كفتة ضاني.webp",
     "title": "سندوتش كفتة ضاني",
     "description": null,
     "size": [
@@ -32,7 +32,7 @@
 
     {
     "id": "sandwich4",
-    "image": "images/sandwiches/سندوتش كفتة فراخ.png",
+    "image": "assets/images/sandwiches/سندوتش كفتة فراخ.png",
     "title": "سندوتش كفتة فراخ",
     "description": null,
     "price": 45
@@ -40,7 +40,7 @@
 
     {
     "id": "sandwich5",
-    "image": "images/sandwiches/سندوتش شيش مخلي.png",
+    "image": "assets/images/sandwiches/سندوتش شيش مخلي.png",
     "title": "سندوتش شيش مخلي",
     "description": null,
     "size": [
@@ -50,14 +50,14 @@
     },
     {
     "id": "sandwich6",
-    "image": "images/sandwiches/رغيف حواوشي لحمة.jpg",
+    "image": "assets/images/sandwiches/رغيف حواوشي لحمة.jpg",
     "title": "رغيف حواوشي لحم",
     "description": null,
     "price": 35
     },
     {
     "id": "sandwich7",
-    "image": "images/sandwiches/رغيف حواوشي فراخ.jpg",
+    "image": "assets/images/sandwiches/رغيف حواوشي فراخ.jpg",
     "title": "رغيف حواوشي فراخ",
     "description": null,
     "price": 25
