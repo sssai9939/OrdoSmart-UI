@@ -17,6 +17,68 @@
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpeg">
   <!-- Cart styles moved to assets/css/style.css and assets/css/responsive.css -->
+  
+  <style>
+    /* Scoped styles for payment card on cart page */
+    .summary .payment-card {
+      background: #ffffff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .summary .payment-card h4 {
+      margin: 0 0 12px 0;
+      font-size: 1.05rem;
+      color: #D9534F; /* primary */
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .summary .payment-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .summary .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #fafafa;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .summary .payment-option:hover {
+      border-color: #D9534F;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .summary .payment-option input[type="radio"] {
+      accent-color: #D9534F;
+      inline-size: 18px;
+      block-size: 18px;
+    }
+    .summary .payment-option .icon {
+      inline-size: 40px;
+      block-size: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: #F5F5F5; /* secondary */
+      color: #D9534F;
+      font-size: 1rem;
+    }
+    /* Make payment option labels red */
+    .summary .payment-option span:last-child {
+      color: #D9534F;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <!-- Header (loaded dynamically) -->
@@ -51,6 +113,30 @@
           <input id="customer-phone" name="tel" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]{7,15}" placeholder="رقم الهاتف *" required />
           <input id="customer-address" name="address" type="text" autocomplete="street-address" placeholder="العنوان بالتفصيل *" required />
           <textarea id="customer-notes" name="notes" placeholder="ملاحظات إضافية (اختياري)" rows="3" autocomplete="off"></textarea>
+        </div>
+        
+        <!-- Payment Method Card (design only) -->
+        <div class="payment-card" aria-labelledby="payment-title">
+          <h4 id="payment-title"><i class="fas fa-credit-card"></i> طريقة الدفع</h4>
+          <div class="payment-options">
+            <label class="payment-option" for="pay-cash">
+              <input type="radio" id="pay-cash" name="payment-method" value="cash" checked>
+              <span class="icon"><i class="fas fa-money-bill-wave"></i></span>
+              <span>كاش عند الاستلام</span>
+            </label>
+
+            <label class="payment-option" for="pay-visa">
+              <input type="radio" id="pay-visa" name="payment-method" value="visa">
+              <span class="icon"><i class="fas fa-credit-card"></i></span>
+              <span>فيزا / ماستر كارد</span>
+            </label>
+
+            <label class="payment-option" for="pay-wallet">
+              <input type="radio" id="pay-wallet" name="payment-method" value="wallet">
+              <span class="icon"><i class="fas fa-wallet"></i></span>
+              <span>محافظة إلكترونية</span>
+            </label>
+          </div>
         </div>
         
         <button id="submit-order" class="submit" disabled>
