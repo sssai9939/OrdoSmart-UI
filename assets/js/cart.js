@@ -48,11 +48,11 @@ function displayCart() {
           <div class="name">${item.title}</div>
           <div class="quantity-section">
             <div class="quantity-control">
-              <button class="quantity-btn" onclick="updateCartQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''} aria-label="تقليل الكمية">
+              <button class="quantity-btn minus" onclick="updateCartQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''} aria-label="تقليل الكمية">
                 <i class="fas fa-minus"></i>
               </button>
-              <input type="number" value="${item.quantity}" min="1" max="99" onchange="handleQuantityInputChange(${index}, this.value)" aria-label="الكمية" readonly>
-              <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)" ${item.quantity >= 99 ? 'disabled' : ''} aria-label="زيادة الكمية">
+              <span class="quantity-display">${item.quantity}</span>
+              <button class="quantity-btn plus" onclick="updateCartQuantity(${index}, 1)" ${item.quantity >= 99 ? 'disabled' : ''} aria-label="زيادة الكمية">
                 <i class="fas fa-plus"></i>
               </button>
             </div>
