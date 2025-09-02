@@ -51,7 +51,7 @@ function displayCart() {
               <button class="quantity-btn" onclick="updateCartQuantity(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''} aria-label="تقليل الكمية">
                 <i class="fas fa-minus"></i>
               </button>
-              <span class="quantity-display">${item.quantity}</span>
+              <input type="number" value="${item.quantity}" min="1" max="99" onchange="handleQuantityInputChange(${index}, this.value)" aria-label="الكمية" readonly>
               <button class="quantity-btn" onclick="updateCartQuantity(${index}, 1)" ${item.quantity >= 99 ? 'disabled' : ''} aria-label="زيادة الكمية">
                 <i class="fas fa-plus"></i>
               </button>
@@ -71,6 +71,25 @@ function displayCart() {
   });
   
   container.innerHTML = html;
+}
+
+function handleQuantityInputChange(index, newValue) {
+    const quantity = parseInt(newValue, 10);
+    if (isNaN(quantity) || quantity < 1) {
+        // If invalid, reset to the old value and exit
+        displayCart(); 
+        return;
+    }
+    
+    const clampedQuantity = Math.max(1, Math.min(quantity, 99));
+
+    if (cart[index]) {
+        cart[index].quantity = clampedQuantity;
+        saveCart();
+        displayCart();
+        updateSummary();
+        if (window.updateCartCounter) updateCartCounter();
+    }
 }
 
 function updateCartQuantity(index, change) {

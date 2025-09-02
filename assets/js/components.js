@@ -87,36 +87,34 @@
             }
           });
 
-          // Update cart badge
-          if (window.updateCartCounter) {
-            try { window.updateCartCounter(); } catch (e) {}
-          } else {
-            function updateCartBadge() {
-              const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-              const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-              
-              const cartLink = document.querySelector('.cart-nav-link');
-              if (!cartLink) return;
-              
-              // Remove existing badge
-              let badge = cartLink.querySelector('.cart-badge');
-              if (badge) {
-                  badge.remove();
-              }
-              
-              // Only show badge on cart page
-              const isCartPage = document.querySelector('main.cart-page') !== null;
-              
-              // Add badge if there are items AND we're on the cart page
-              if (totalItems > 0 && isCartPage) {
-                  badge = document.createElement('span');
-                  badge.className = 'cart-badge';
-                  badge.textContent = totalItems;
-                  cartLink.appendChild(badge);
-              }
+          // Define global cart counter function
+          function updateCartCounter() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+            
+            const cartLink = document.querySelector('.cart-nav-link');
+            if (!cartLink) return;
+            
+            // Remove existing badge
+            let badge = cartLink.querySelector('.cart-badge');
+            if (badge) {
+                badge.remove();
             }
-            updateCartBadge();
+            
+            // Show badge on all pages if there are items in cart
+            if (totalItems > 0) {
+                badge = document.createElement('span');
+                badge.className = 'cart-badge';
+                badge.textContent = totalItems;
+                cartLink.appendChild(badge);
+            }
           }
+          
+          // Make it globally available
+          window.updateCartCounter = updateCartCounter;
+          
+          // Update cart badge initially
+          updateCartCounter();
         }
       } catch (e) {
         console.error('Failed to load component', selector, e);
