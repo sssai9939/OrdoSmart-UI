@@ -107,9 +107,25 @@
                 badge.className = 'cart-badge';
                 badge.textContent = totalItems;
                 cartLink.appendChild(badge);
-            }
-          }
+      }
+      // Update floating cart shortcut if present
+      const floatBtn = document.getElementById('floating-cart-btn');
+      if (floatBtn) {
+        const countEl = document.getElementById('floating-cart-count');
+        const totalEl = document.getElementById('floating-cart-total');
+        if (totalItems > 0) {
+          floatBtn.classList.remove('hidden');
+          if (countEl) countEl.textContent = totalItems;
+          const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 0)), 0);
+          if (totalEl) totalEl.textContent = totalPrice.toFixed(0);
+        } else {
+          floatBtn.classList.add('hidden');
+        }
+      }
+
           
+    }
+
           // Make it globally available
           window.updateCartCounter = updateCartCounter;
           

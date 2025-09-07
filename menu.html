@@ -12,6 +12,34 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="./assets/css/responsive.css" />
 
+  <style>
+    /* Floating cart shortcut styles */
+    .floating-cart {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg,#1b5e20 0%, #2e7d32 100%);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 60px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      min-width: 260px;
+      max-width: 90%;
+      z-index: 10050;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .floating-cart .cart-label { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+    .floating-cart .cart-summary { font-size: 14px; font-weight: 600; }
+    .floating-cart i { font-size: 18px; }
+    .floating-cart.hidden { display: none !important; }
+    @media (min-width: 768px) { .floating-cart { left: auto; right: 30px; transform: none; } }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -142,6 +170,11 @@
       <div class="dishes-container" id="dishes-container"></div>
     </div>
   </main>
+
+  <div id="floating-cart-btn" class="floating-cart hidden" aria-label="اختصار السلة">
+    <span class="cart-label"><i class="fas fa-shopping-cart"></i> عرض السلة</span>
+    <span class="cart-summary"><span id="floating-cart-count">0</span> عنصر • <span id="floating-cart-total">0</span> جنيه</span>
+  </div>
 
   <!-- Footer -->
   <div id="site-footer"></div>
@@ -507,6 +540,14 @@
         closeImageModal();
       }
     });
+    // Floating cart button click
+    const floatBtn = document.getElementById('floating-cart-btn');
+    if (floatBtn) {
+      floatBtn.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+      });
+    }
+
   </script>
 </body>
 </html>
